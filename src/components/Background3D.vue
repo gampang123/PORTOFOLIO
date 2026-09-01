@@ -1,0 +1,244 @@
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
+import * as THREE from 'three'
+
+const canvasContainer = ref(null)
+let scene, camera, renderer, animationFrameId
+let particlesMesh, geomMesh, pointsMesh
+let targetX = 0
+let targetY = 0
+let currentX = 0
+let currentY = 0
+
+const initThree = () => {
+  if (!canvasContainer.value) return
+
+  // 1. Scene setup
+  scene = new THREE.Scene()
+  scene.fog = new THREE.FogExp2(0x07080e, 0.0018)
+
+  const width = window.innerWidth
+  const height = window.innerHeight
+
+  // 2. Camera setup
+  camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 2000)
+  camera.position.z = 400
+  camera.position.y = 80
+
+  // 3. Renderer setup
+  renderer = new THREE.WebGLRenderer({
+    antialias: true,
+    alpha: true,
+    powerPreference: 'high-performance',
+  })
+  renderer.setSize(width, height)
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+  renderer.setClearColor(0x07080e, 1)
+  canvasContainer.value.appendChild(renderer.domElement)
+
+  // 4. Create Interactive Particle Grid (Wave Simulation)
+  const particleCountX = 55
+  const particleCountY = 55
+  const totalParticles = particleCountX * particleCountY
+  const positions = new Float32Array(totalParticles * 3)
+  const scales = new Float32Array(totalParticles)
+  const colors = new Float32Array(totalParticles * 3)
+
+  const colorCyan = new THREE.Color(0x00f0ff)
+  const colorPurple = new THREE.Color(0x8b5cf6)
+  const tempColor = new THREE.Color()
+
+  const separation = 30
+  let i = 0
+  let cIndex = 0
+  for (let ix = 0; ix < particleCountX; ix++) {
+    for (let iy = 0; iy < particleCountY; iy++) {
+      positions[i] = ix * separation - (particleCountX * separation) / 2
+      positions[i + 1] = 0
+      positions[i + 2] = iy * separation - (particleCountY * separation) / 2
+
+      scales[cIndex] = 1.0
+
+      // Gradient from cyan to purple based on position
+      const ratio = (ix + iy) / (particleCountX + particleCountY)
+      tempColor.lerpColors(colorCyan, colorPurple, ratio)
+      colors[i] = tempColor.r
+      colors[i + 1] = tempColor.g
+      colors[i + 2] = tempColor.b
+
+      i += 3
+      cIndex++
+    }
+  }
+
+  const particleGeometry = new THREE.BufferGeometry()
+  particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
+  particleGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3))
+
+  // Custom particle material with vertex colors
+  const particleMaterial = new THREE.PointsMaterial({
+    size: 2.6,
+    vertexColors: true,
+    transparent: true,
+    opacity: 0.75,
+    blending: THREE.AdditiveBlending,
+  })
+
+  particlesMesh = new THREE.Points(particleGeometry, particleMaterial)
+  particlesMesh.position.y = -80
+  particlesMesh.rotation.x = 0.25
+  scene.add(particlesMesh)
+
+  // 5. Floating Aesthetic 3D Object (Icosahedron Wireframe & Points)
+  const icosahedronGeometry = new THREE.IcosahedronGeometry(90, 1)
+
+  // Wireframe
+  const wireMaterial = new THREE.MeshBasicMaterial({
+    color: 0x00f0ff,
+    wireframe: true,
+    transparent: true,
+    opacity: 0.14,
+  })
+  geomMesh = new THREE.Mesh(icosahedronGeometry, wireMaterial)
+  geomMesh.position.set(160, 40, -50)
+  scene.add(geomMesh)
+
+  // Vertex Points
+  const pointsMaterial = new THREE.PointsMaterial({
+    color: 0xa855f7,
+    size: 4,
+    transparent: true,
+    opacity: 0.85,
+    blending: THREE.AdditiveBlending,
+  })
+  pointsMesh = new THREE.Points(icosahedronGeometry, pointsMaterial)
+  pointsMesh.position.copy(geomMesh.position)
+  scene.add(pointsMesh)
+
+  // 6. Floating ambient dust particles
+  const dustCount = 200
+  const dustPositions = new Float32Array(dustCount * 3)
+  for (let d = 0; d < dustCount * 3; d += 3) {
+    dustPositions[d] = (Math.random() - 0.5) * 1200
+    dustPositions[d + 1] = (Math.random() - 0.5) * 800
+    dustPositions[d + 2] = (Math.random() - 0.5) * 1000
+  }
+  const dustGeometry = new THREE.BufferGeometry()
+  dustGeometry.setAttribute('position', new THREE.BufferAttribute(dustPositions, 3))
+  const dustMaterial = new THREE.PointsMaterial({
+    color: 0x00f0ff,
+    size: 1.8,
+    transparent: true,
+    opacity: 0.35,
+    blending: THREE.AdditiveBlending,
+  })
+  const dustMesh = new THREE.Points(dustGeometry, dustMaterial)
+  scene.add(dustMesh)
+
+  // 7. Event listeners
+  window.addEventListener('mousemove', onMouseMove, { passive: true })
+  window.addEventListener('resize', onWindowResize, { passive: true })
+
+  // 8. Start loop
+  animate()
+}
+
+const onMouseMove = (event) => {
+  const windowHalfX = window.innerWidth / 2
+  const windowHalfY = window.innerHeight / 2
+  targetX = (event.clientX - windowHalfX) * 0.25
+  targetY = (event.clientY - windowHalfY) * 0.25
+}
+
+const onWindowResize = () => {
+  if (!renderer || !camera) return
+  const width = window.innerWidth
+  const height = window.innerHeight
+  camera.aspect = width / height
+  camera.updateProjectionMatrix()
+  renderer.setSize(width, height)
+}
+
+let count = 0
+const animate = () => {
+  animationFrameId = requestAnimationFrame(animate)
+
+  count += 0.035
+
+  // Smooth lerp mouse tracking
+  currentX += (targetX - currentX) * 0.05
+  currentY += (targetY - currentY) * 0.05
+
+  // Animate particle wave
+  if (particlesMesh) {
+    const positionAttr = particlesMesh.geometry.attributes.position
+    const pos = positionAttr.array
+    let i = 1
+    const particleCountX = 55
+    const particleCountY = 55
+
+    for (let ix = 0; ix < particleCountX; ix++) {
+      for (let iy = 0; iy < particleCountY; iy++) {
+        pos[i] =
+          Math.sin((ix + count) * 0.3) * 22 +
+          Math.sin((iy + count) * 0.5) * 22
+        i += 3
+      }
+    }
+    positionAttr.needsUpdate = true
+    particlesMesh.rotation.z = currentX * 0.0003
+  }
+
+  // Animate 3D wireframe object
+  if (geomMesh && pointsMesh) {
+    geomMesh.rotation.x += 0.004
+    geomMesh.rotation.y += 0.006
+    pointsMesh.rotation.copy(geomMesh.rotation)
+
+    // Gentle responsive tilt
+    geomMesh.position.x = 160 + currentX * 0.25
+    geomMesh.position.y = 40 - currentY * 0.25
+    pointsMesh.position.copy(geomMesh.position)
+  }
+
+  // Camera parallax response
+  camera.position.x += (currentX - camera.position.x) * 0.03
+  camera.position.y += (-currentY + 80 - camera.position.y) * 0.03
+  camera.lookAt(0, 0, 0)
+
+  renderer.render(scene, camera)
+}
+
+onMounted(() => {
+  initThree()
+})
+
+onUnmounted(() => {
+  if (animationFrameId) {
+    cancelAnimationFrame(animationFrameId)
+  }
+  window.removeEventListener('mousemove', onMouseMove)
+  window.removeEventListener('resize', onWindowResize)
+
+  if (renderer && renderer.domElement && canvasContainer.value) {
+    canvasContainer.value.removeChild(renderer.domElement)
+    renderer.dispose()
+  }
+})
+</script>
+
+<template>
+  <div
+    ref="canvasContainer"
+    class="fixed inset-0 pointer-events-none -z-10 overflow-hidden"
+    aria-hidden="true"
+  >
+    <!-- Ambient glowing radial light overlay -->
+    <div
+      class="absolute top-1/4 -left-48 w-96 h-96 bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none"
+    ></div>
+    <div
+      class="absolute bottom-1/3 -right-48 w-96 h-96 bg-purple-600/10 rounded-full blur-[140px] pointer-events-none"
+    ></div>
+  </div>
+</template>

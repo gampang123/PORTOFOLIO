@@ -1,0 +1,56 @@
+export const skillCategories = [
+  {
+    id: "backend",
+    title: "Backend & Systems Development",
+    description: "Pengembangan server, arsitektur MVC, database management, dan integrasi API pihak ketiga.",
+    icon: "Server",
+    skills: [
+      { name: "Laravel Framework", level: 85, tag: "Advance Beginner" },
+      { name: "PHP (OOP & Native)", level: 82, tag: "Advance Beginner" },
+      { name: "MySQL Database", level: 84, tag: "Core Database" },
+      { name: "RESTful API & 3rd Party Integration", level: 86, tag: "Integration" },
+      { name: "Redis Caching", level: 75, tag: "Performance" },
+      { name: "Go (Golang)", level: 68, tag: "Novice" },
+    ],
+  },
+  {
+    id: "frontend",
+    title: "Frontend Engineering",
+    description: "Antarmuka web yang rapi, responsif, dan interaktif dengan modern CSS & JavaScript.",
+    icon: "Layout",
+    skills: [
+      { name: "Tailwind CSS", level: 90, tag: "Styling" },
+      { name: "Bootstrap Framework", level: 88, tag: "Responsive UI" },
+      { name: "jQuery Scripting", level: 85, tag: "Advance Beginner" },
+      { name: "JavaScript (ES6+)", level: 76, tag: "Novice" },
+      { name: "TypeScript", level: 72, tag: "Novice" },
+      { name: "HTML5 & CSS3 Responsive", level: 90, tag: "Foundation" },
+    ],
+  },
+  {
+    id: "security",
+    title: "Security & Code Quality",
+    description: "Penerapan standar keamanan web, review arsitektur, dan metodologi pengembangan aman.",
+    icon: "Sparkles",
+    skills: [
+      { name: "OWASP Top 10 / ASVS", level: 82, tag: "Web Security" },
+      { name: "Secure SDLC (OWASP SAMM)", level: 80, tag: "Methodology" },
+      { name: "Secure Architecture Review", level: 78, tag: "System Design" },
+      { name: "Authentication & Authorization (RBAC)", level: 84, tag: "Access Control" },
+      { name: "Data Sanitization & Injection Prevention", level: 86, tag: "Hardening" },
+    ],
+  },
+  {
+    id: "tools",
+    title: "Dev Tools & Infrastructure",
+    description: "Perangkat pengujian, version control, container, dan manajemen deployment.",
+    icon: "Cpu",
+    skills: [
+      { name: "Git & Version Control", level: 86, tag: "Workflow" },
+      { name: "Postman API Testing", level: 88, tag: "Testing" },
+      { name: "Docker Containerization", level: 74, tag: "DevOps" },
+      { name: "WordPress CMS Customization", level: 82, tag: "CMS" },
+      { name: "Linux / Shell Environment", level: 76, tag: "Environment" },
+    ],
+  },
+];

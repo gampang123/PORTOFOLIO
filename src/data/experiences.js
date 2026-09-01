@@ -1,0 +1,46 @@
+export const experiencesData = [
+  {
+    id: "hotel-management-dev",
+    period: "2025 – Sekarang",
+    role: "Full Stack Developer",
+    company: "Perusahaan Hotel Management",
+    location: "Yogyakarta, Indonesia",
+    description: "Pengembangan dan pemeliharaan source code sistem manajemen hotel inti menggunakan PHP (Laravel), mencakup perbaikan bug dan optimasi performa berkelanjutan.",
+    achievements: [
+      "Melakukan maintenance dan pengembangan source code sistem manajemen hotel menggunakan PHP (Laravel), termasuk perbaikan bug dan optimasi performa sistem.",
+      "Merancang dan membangun fitur-fitur baru sesuai kebutuhan bisnis untuk mendukung operasional manajemen hotel secara optimal.",
+      "Melakukan integrasi sistem dengan pihak ketiga (third-party API integration) untuk memperluas fungsionalitas dan konektivitas platform.",
+      "Menangani pengembangan backend dan frontend serta manajemen database untuk menjaga stabilitas dan performa sistem.",
+    ],
+    technologies: ["PHP (Laravel)", "MySQL", "Third-Party API", "Tailwind CSS", "JavaScript", "Redis"],
+  },
+  {
+    id: "freelance-javas-unfccc",
+    period: "2024 – 2025",
+    role: "Freelance Web Developer",
+    company: "Javas Technology, UNFCCC COP 29 & Iconhub.co.id",
+    location: "Remote / Proyek Mandiri",
+    description: "Mengembangkan berbagai solusi web berskala komersial mulai dari portal enterprise, konferensi global, hingga platform SaaS multi-tenant.",
+    achievements: [
+      "Membangun sistem Point of Sale (POS) berbasis SaaS menggunakan framework Laravel bersama Javas Technology.",
+      "Membangun website Satu Batang Toru menggunakan framework Laravel untuk keterbukaan informasi publik.",
+      "Membangun website resmi iconhub.co.id menggunakan framework Laravel dengan performa tinggi.",
+      "Membangun website resmi konferensi internasional UNFCCC COP 29 menggunakan WordPress kustom.",
+    ],
+    technologies: ["Laravel", "PHP", "WordPress", "Bootstrap", "jQuery", "MySQL"],
+  },
+  {
+    id: "internship-laravel",
+    period: "Sep 2024 – Jan 2025",
+    role: "Web Developer Intern",
+    company: "Internship Program",
+    location: "Yogyakarta, Indonesia",
+    description: "Praktik kerja profesional dalam pengembangan produk web berbasis framework Laravel dengan standar clean code industri.",
+    achievements: [
+      "Membangun website company profile modern menggunakan framework Laravel dari tahap perencanaan hingga deployment.",
+      "Menerapkan integrasi database terstruktur, form validasi ketat, dan antarmuka responsif ramah pengguna.",
+      "Berkolaborasi dalam tim pengembang untuk memastikan kepatuhan terhadap standar keamanan web dasar.",
+    ],
+    technologies: ["Laravel", "PHP", "MySQL", "Tailwind CSS", "Git"],
+  },
+];
