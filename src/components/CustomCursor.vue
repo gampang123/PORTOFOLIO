@@ -67,7 +67,7 @@ onUnmounted(() => {
   <div v-if="!isTouchDevice" class="pointer-events-none fixed inset-0 z-50 overflow-hidden" aria-hidden="true">
     <!-- Inner Dot -->
     <div
-      class="fixed w-2 h-2 -ml-1 -mt-1 rounded-full bg-neon-cyan transition-opacity duration-300 shadow-[0_0_8px_#00f0ff]"
+      class="fixed w-2 h-2 -ml-1 -mt-1 rounded-full bg-white transition-opacity duration-300 shadow-[0_0_10px_rgba(255,255,255,0.9)]"
       :class="[isVisible ? 'opacity-100' : 'opacity-0', isHovering ? 'scale-0' : 'scale-100']"
       :style="{
         transform: `translate3d(${cursorX}px, ${cursorY}px, 0)`,
@@ -76,11 +76,11 @@ onUnmounted(() => {
 
     <!-- Outer Ring Aura -->
     <div
-      class="fixed -ml-5 -mt-5 rounded-full border border-cyan-400/60 transition-transform duration-200 ease-out pointer-events-none"
+      class="fixed -ml-5 -mt-5 rounded-full border border-white/40 transition-transform duration-200 ease-out pointer-events-none"
       :class="[
         isVisible ? 'opacity-100' : 'opacity-0',
         isHovering
-          ? 'w-14 h-14 -ml-7 -mt-7 bg-cyan-500/10 border-neon-cyan shadow-[0_0_20px_rgba(0,240,255,0.4)] scale-110'
+          ? 'w-14 h-14 -ml-7 -mt-7 bg-white/10 border-white shadow-[0_0_20px_rgba(255,255,255,0.4)] scale-110'
           : 'w-10 h-10 scale-100',
       ]"
       :style="{

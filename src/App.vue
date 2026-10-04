@@ -26,7 +26,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="relative min-h-screen bg-cyber-bg text-slate-100 selection:bg-neon-cyan selection:text-slate-950 font-sans">
+  <div class="relative min-h-screen bg-cyber-bg text-slate-100 selection:bg-white selection:text-black font-sans">
     <!-- Custom Reactive Mouse Cursor -->
     <CustomCursor />
 

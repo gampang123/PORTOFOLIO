@@ -110,15 +110,15 @@ onMounted(() => {
   >
     <!-- Section Header -->
     <div class="contact-header mb-16">
-      <div class="flex items-center gap-2 font-mono text-xs text-neon-cyan tracking-widest uppercase mb-2">
-        <span class="text-slate-500">//</span>
+      <div class="flex items-center gap-2 font-mono text-xs text-neutral-400 tracking-widest uppercase mb-2">
+        <span class="text-neutral-600">//</span>
         <span>05. CONNECT WITH ME</span>
-        <div class="h-px bg-cyan-500/30 flex-grow max-w-[120px]"></div>
+        <div class="h-px bg-white/20 flex-grow max-w-[120px]"></div>
       </div>
       <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white tracking-tight">
         Mari Wujudkan Ide <span class="cyber-gradient-text">Hebat Berikutnya</span>.
       </h2>
-      <p class="text-slate-400 text-sm sm:text-base max-w-xl mt-3">
+      <p class="text-neutral-400 text-sm sm:text-base max-w-xl mt-3">
         Apakah Anda memiliki ide produk baru, butuh kolaborasi teknik, atau sekadar ingin menyapa? Kotak masuk saya selalu terbuka.
       </p>
     </div>
@@ -128,9 +128,9 @@ onMounted(() => {
       <!-- Left Column: Info & Socials -->
       <div class="contact-card-left lg:col-span-5 space-y-6">
         <!-- Direct Email Card with Copy button -->
-        <div class="p-6 rounded-2xl glass-panel border border-white/10 hover:border-cyan-500/30 transition-all shadow-glass">
-          <div class="flex items-center gap-3 mb-3 text-neon-cyan font-mono text-xs uppercase tracking-wider">
-            <Mail class="w-4 h-4" />
+        <div class="p-6 rounded-2xl glass-panel border border-white/10 hover:border-white/35 transition-all shadow-glass">
+          <div class="flex items-center gap-3 mb-3 text-white font-mono text-xs uppercase tracking-wider">
+            <Mail class="w-4 h-4 text-white" />
             <span>DIRECT INBOX</span>
           </div>
           <p class="font-mono text-base sm:text-lg text-white font-medium break-all mb-4">
@@ -138,38 +138,38 @@ onMounted(() => {
           </p>
           <button
             @click="copyEmail"
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cyber-surfaceLight border border-white/10 text-xs font-mono text-slate-300 hover:text-white hover:border-cyan-500/40 transition-all"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cyber-surfaceLight border border-white/10 text-xs font-mono text-neutral-300 hover:text-white hover:border-white/40 transition-all"
           >
-            <Check v-if="isCopied" class="w-4 h-4 text-emerald-400" />
-            <Copy v-else class="w-4 h-4 text-neon-cyan" />
+            <Check v-if="isCopied" class="w-4 h-4 text-white" />
+            <Copy v-else class="w-4 h-4 text-white" />
             <span>{{ isCopied ? 'EMAIL DISALIN!' : 'SALIN ALAMAT EMAIL' }}</span>
           </button>
         </div>
 
         <!-- Location & Availability status -->
         <div class="p-6 rounded-2xl glass-panel border border-white/10 shadow-glass space-y-4">
-          <div class="flex items-center gap-3 text-xs font-mono text-slate-300">
-            <MapPin class="w-4 h-4 text-neon-cyan flex-shrink-0" />
+          <div class="flex items-center gap-3 text-xs font-mono text-neutral-300">
+            <MapPin class="w-4 h-4 text-white flex-shrink-0" />
             <span>{{ personalData.location }}</span>
           </div>
-          <div v-if="personalData.phone" class="flex items-center gap-3 text-xs font-mono text-slate-300">
-            <Phone class="w-4 h-4 text-emerald-400 flex-shrink-0" />
+          <div v-if="personalData.phone" class="flex items-center gap-3 text-xs font-mono text-neutral-300">
+            <Phone class="w-4 h-4 text-white flex-shrink-0" />
             <span>{{ personalData.phone }} (WhatsApp / Phone)</span>
           </div>
-          <div class="flex items-center gap-3 text-xs font-mono text-emerald-400">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-            <span class="w-2 h-2 -ml-5 rounded-full bg-emerald-400"></span>
+          <div class="flex items-center gap-3 text-xs font-mono text-neutral-300">
+            <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
+            <span class="w-2 h-2 -ml-5 rounded-full bg-white"></span>
             <span>Status: {{ personalData.status }}</span>
           </div>
-          <div class="flex items-center gap-3 text-xs font-mono text-slate-400">
-            <Clock class="w-4 h-4 text-purple-400 flex-shrink-0" />
+          <div class="flex items-center gap-3 text-xs font-mono text-neutral-400">
+            <Clock class="w-4 h-4 text-neutral-400 flex-shrink-0" />
             <span>Typical Response Time: &lt; 24 Jam</span>
           </div>
         </div>
 
         <!-- Social Media Buttons -->
         <div>
-          <h4 class="font-mono text-xs uppercase tracking-widest text-slate-400 mb-3 font-semibold">
+          <h4 class="font-mono text-xs uppercase tracking-widest text-neutral-400 mb-3 font-semibold">
             Social Networks
           </h4>
           <div class="grid grid-cols-2 gap-3">
@@ -177,36 +177,36 @@ onMounted(() => {
               :href="personalData.socials.github"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center gap-3 p-3.5 rounded-xl glass-panel border border-white/5 hover:border-cyan-500/40 hover:text-neon-cyan text-slate-300 font-mono text-xs transition-all hover:-translate-y-0.5"
+              class="flex items-center gap-3 p-3.5 rounded-xl glass-panel border border-white/5 hover:border-white/40 hover:text-white text-neutral-300 font-mono text-xs transition-all hover:-translate-y-0.5"
             >
-              <Github class="w-4 h-4 text-neon-cyan" />
+              <Github class="w-4 h-4 text-white" />
               <span>GitHub</span>
             </a>
             <a
               :href="personalData.socials.linkedin"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center gap-3 p-3.5 rounded-xl glass-panel border border-white/5 hover:border-cyan-500/40 hover:text-neon-cyan text-slate-300 font-mono text-xs transition-all hover:-translate-y-0.5"
+              class="flex items-center gap-3 p-3.5 rounded-xl glass-panel border border-white/5 hover:border-white/40 hover:text-white text-neutral-300 font-mono text-xs transition-all hover:-translate-y-0.5"
             >
-              <Linkedin class="w-4 h-4 text-neon-cyan" />
+              <Linkedin class="w-4 h-4 text-white" />
               <span>LinkedIn</span>
             </a>
             <a
               :href="personalData.socials.instagram"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center gap-3 p-3.5 rounded-xl glass-panel border border-white/5 hover:border-cyan-500/40 hover:text-neon-cyan text-slate-300 font-mono text-xs transition-all hover:-translate-y-0.5"
+              class="flex items-center gap-3 p-3.5 rounded-xl glass-panel border border-white/5 hover:border-white/40 hover:text-white text-neutral-300 font-mono text-xs transition-all hover:-translate-y-0.5"
             >
-              <Instagram class="w-4 h-4 text-neon-cyan" />
+              <Instagram class="w-4 h-4 text-white" />
               <span>Instagram</span>
             </a>
             <a
               :href="personalData.socials.twitter"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center gap-3 p-3.5 rounded-xl glass-panel border border-white/5 hover:border-cyan-500/40 hover:text-neon-cyan text-slate-300 font-mono text-xs transition-all hover:-translate-y-0.5"
+              class="flex items-center gap-3 p-3.5 rounded-xl glass-panel border border-white/5 hover:border-white/40 hover:text-white text-neutral-300 font-mono text-xs transition-all hover:-translate-y-0.5"
             >
-              <Sparkles class="w-4 h-4 text-neon-cyan" />
+              <Sparkles class="w-4 h-4 text-white" />
               <span>X / Twitter</span>
             </a>
           </div>
@@ -222,69 +222,69 @@ onMounted(() => {
           <!-- Success Notification Banner -->
           <div
             v-if="isSubmitted"
-            class="p-4 rounded-xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-300 text-xs font-mono flex items-center gap-3 animate-fade-in"
+            class="p-4 rounded-xl bg-white/10 border border-white/30 text-white text-xs font-mono flex items-center gap-3 animate-fade-in"
           >
-            <Sparkles class="w-5 h-5 text-emerald-400 flex-shrink-0" />
+            <Sparkles class="w-5 h-5 text-white flex-shrink-0" />
             <div>
               <p class="font-bold">PESAN BERHASIL TERKIRIM!</p>
-              <p class="text-slate-300">Terima kasih telah menghubungi. Saya akan merespons secepat mungkin.</p>
+              <p class="text-neutral-300">Terima kasih telah menghubungi. Saya akan merespons secepat mungkin.</p>
             </div>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <!-- Name Input -->
             <div class="space-y-2">
-              <label class="block font-mono text-xs uppercase tracking-wider text-slate-300">
-                Nama Anda <span class="text-neon-cyan">*</span>
+              <label class="block font-mono text-xs uppercase tracking-wider text-neutral-300">
+                Nama Anda <span class="text-white">*</span>
               </label>
               <input
                 v-model="form.name"
                 type="text"
                 required
                 placeholder="misal: Rian S."
-                class="w-full px-4 py-3 rounded-xl bg-cyber-surfaceLight/80 border border-white/10 focus:border-neon-cyan focus:outline-none text-white text-sm placeholder-slate-500 transition-colors font-sans"
+                class="w-full px-4 py-3 rounded-xl bg-cyber-surfaceLight/80 border border-white/10 focus:border-white focus:bg-white/[0.06] focus:outline-none text-white text-sm placeholder-neutral-500 transition-colors font-sans"
               />
             </div>
 
             <!-- Email Input -->
             <div class="space-y-2">
-              <label class="block font-mono text-xs uppercase tracking-wider text-slate-300">
-                Email Anda <span class="text-neon-cyan">*</span>
+              <label class="block font-mono text-xs uppercase tracking-wider text-neutral-300">
+                Email Anda <span class="text-white">*</span>
               </label>
               <input
                 v-model="form.email"
                 type="email"
                 required
                 placeholder="nama@perusahaan.com"
-                class="w-full px-4 py-3 rounded-xl bg-cyber-surfaceLight/80 border border-white/10 focus:border-neon-cyan focus:outline-none text-white text-sm placeholder-slate-500 transition-colors font-sans"
+                class="w-full px-4 py-3 rounded-xl bg-cyber-surfaceLight/80 border border-white/10 focus:border-white focus:bg-white/[0.06] focus:outline-none text-white text-sm placeholder-neutral-500 transition-colors font-sans"
               />
             </div>
           </div>
 
           <!-- Subject Input -->
           <div class="space-y-2">
-            <label class="block font-mono text-xs uppercase tracking-wider text-slate-300">
+            <label class="block font-mono text-xs uppercase tracking-wider text-neutral-300">
               Subjek / Topik Proyek
             </label>
             <input
               v-model="form.subject"
               type="text"
               placeholder="Contoh: Pengembangan Web App Modern / Kolaborasi"
-              class="w-full px-4 py-3 rounded-xl bg-cyber-surfaceLight/80 border border-white/10 focus:border-neon-cyan focus:outline-none text-white text-sm placeholder-slate-500 transition-colors font-sans"
+              class="w-full px-4 py-3 rounded-xl bg-cyber-surfaceLight/80 border border-white/10 focus:border-white focus:bg-white/[0.06] focus:outline-none text-white text-sm placeholder-neutral-500 transition-colors font-sans"
             />
           </div>
 
           <!-- Message Input -->
           <div class="space-y-2">
-            <label class="block font-mono text-xs uppercase tracking-wider text-slate-300">
-              Pesan atau Detail Kebutuhan <span class="text-neon-cyan">*</span>
+            <label class="block font-mono text-xs uppercase tracking-wider text-neutral-300">
+              Pesan atau Detail Kebutuhan <span class="text-white">*</span>
             </label>
             <textarea
               v-model="form.message"
               required
               rows="5"
               placeholder="Ceritakan gambaran proyek, target waktu, atau hal apa yang bisa saya bantu..."
-              class="w-full px-4 py-3 rounded-xl bg-cyber-surfaceLight/80 border border-white/10 focus:border-neon-cyan focus:outline-none text-white text-sm placeholder-slate-500 transition-colors font-sans resize-none"
+              class="w-full px-4 py-3 rounded-xl bg-cyber-surfaceLight/80 border border-white/10 focus:border-white focus:bg-white/[0.06] focus:outline-none text-white text-sm placeholder-neutral-500 transition-colors font-sans resize-none"
             ></textarea>
           </div>
 
@@ -292,10 +292,10 @@ onMounted(() => {
           <button
             type="submit"
             :disabled="isSubmitting"
-            class="w-full py-3.5 px-6 rounded-xl bg-neon-cyan text-slate-950 font-mono font-bold text-sm tracking-wider shadow-neon-cyan hover:shadow-[0_0_30px_rgba(0,240,255,0.7)] hover:bg-white transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50"
+            class="w-full py-3.5 px-6 rounded-xl bg-white text-black font-mono font-bold text-sm tracking-wider shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] hover:bg-neutral-200 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50"
           >
             <span v-if="isSubmitting" class="flex items-center gap-2">
-              <span class="w-4 h-4 rounded-full border-2 border-slate-950 border-t-transparent animate-spin"></span>
+              <span class="w-4 h-4 rounded-full border-2 border-black border-t-transparent animate-spin"></span>
               <span>MENGIRIM PESAN...</span>
             </span>
             <span v-else class="flex items-center gap-2">

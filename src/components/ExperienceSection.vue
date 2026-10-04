@@ -55,15 +55,15 @@ onMounted(() => {
   >
     <!-- Section Header -->
     <div class="experience-header mb-16">
-      <div class="flex items-center gap-2 font-mono text-xs text-neon-cyan tracking-widest uppercase mb-2">
-        <span class="text-slate-500">//</span>
+      <div class="flex items-center gap-2 font-mono text-xs text-neutral-400 tracking-widest uppercase mb-2">
+        <span class="text-neutral-600">//</span>
         <span>04. CAREER & MILESTONES</span>
-        <div class="h-px bg-cyan-500/30 flex-grow max-w-[120px]"></div>
+        <div class="h-px bg-white/20 flex-grow max-w-[120px]"></div>
       </div>
       <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white tracking-tight">
         Rekam Jejak <span class="cyber-gradient-text">Profesional</span>.
       </h2>
-      <p class="text-slate-400 text-sm sm:text-base max-w-xl mt-3">
+      <p class="text-neutral-400 text-sm sm:text-base max-w-xl mt-3">
         Pengalaman membangun sistem web berskala produksi, memimpin arsitektur antarmuka, dan berkolaborasi dalam tim multidisiplin.
       </p>
     </div>
@@ -72,7 +72,7 @@ onMounted(() => {
     <div class="timeline-container relative max-w-4xl mx-auto pl-6 sm:pl-10">
       <!-- Vertical Glowing Line -->
       <div
-        class="absolute left-2 sm:left-3 top-4 bottom-4 w-0.5 bg-gradient-to-b from-cyan-400 via-purple-500 to-transparent shadow-[0_0_10px_rgba(0,240,255,0.4)]"
+        class="absolute left-2 sm:left-3 top-4 bottom-4 w-0.5 bg-gradient-to-b from-white via-neutral-500 to-transparent shadow-[0_0_10px_rgba(255,255,255,0.25)]"
       ></div>
 
       <div class="space-y-12">
@@ -83,39 +83,39 @@ onMounted(() => {
         >
           <!-- Glowing Node on Timeline -->
           <div
-            class="absolute -left-6 sm:-left-10 top-1.5 w-5 h-5 rounded-full bg-cyber-bg border-2 border-neon-cyan flex items-center justify-center shadow-[0_0_12px_#00f0ff] group-hover:scale-125 group-hover:bg-neon-cyan transition-all duration-300"
+            class="absolute -left-6 sm:-left-10 top-1.5 w-5 h-5 rounded-full bg-black border-2 border-white flex items-center justify-center shadow-[0_0_12px_rgba(255,255,255,0.5)] group-hover:scale-125 group-hover:bg-white transition-all duration-300"
           >
-            <span class="w-1.5 h-1.5 rounded-full bg-neon-cyan group-hover:bg-slate-950 transition-colors"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-white group-hover:bg-black transition-colors"></span>
           </div>
 
           <!-- Content Card -->
           <div
-            class="p-6 sm:p-7 rounded-2xl glass-panel border border-white/10 hover:border-cyan-500/30 transition-all duration-300 shadow-glass group-hover:shadow-glass-hover"
+            class="p-6 sm:p-7 rounded-2xl glass-panel border border-white/10 hover:border-white/35 transition-all duration-300 shadow-glass group-hover:shadow-[0_8px_32px_0_rgba(255,255,255,0.06)]"
           >
             <!-- Top meta row -->
             <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-              <div class="flex items-center gap-2 font-mono text-xs text-neon-cyan">
-                <Calendar class="w-3.5 h-3.5" />
+              <div class="flex items-center gap-2 font-mono text-xs text-neutral-300">
+                <Calendar class="w-3.5 h-3.5 text-white" />
                 <span>{{ exp.period }}</span>
               </div>
-              <div class="flex items-center gap-1.5 text-xs text-slate-400 font-mono">
-                <MapPin class="w-3.5 h-3.5 text-slate-500" />
+              <div class="flex items-center gap-1.5 text-xs text-neutral-400 font-mono">
+                <MapPin class="w-3.5 h-3.5 text-neutral-500" />
                 <span>{{ exp.location }}</span>
               </div>
             </div>
 
             <!-- Role & Company -->
             <div class="mb-3">
-              <h3 class="text-xl sm:text-2xl font-display font-bold text-white group-hover:text-neon-cyan transition-colors">
+              <h3 class="text-xl sm:text-2xl font-display font-bold text-white group-hover:text-neutral-200 transition-colors">
                 {{ exp.role }}
               </h3>
-              <p class="text-sm font-mono text-purple-400 font-medium mt-0.5">
+              <p class="text-sm font-mono text-neutral-400 font-medium mt-0.5">
                 @ {{ exp.company }}
               </p>
             </div>
 
             <!-- Description -->
-            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+            <p class="text-neutral-300 text-sm leading-relaxed mb-4">
               {{ exp.description }}
             </p>
 
@@ -124,9 +124,9 @@ onMounted(() => {
               <div
                 v-for="(ach, aIdx) in exp.achievements"
                 :key="aIdx"
-                class="flex items-start gap-2 text-xs sm:text-sm text-slate-400"
+                class="flex items-start gap-2 text-xs sm:text-sm text-neutral-400"
               >
-                <ChevronRight class="w-4 h-4 text-neon-cyan flex-shrink-0 mt-0.5" />
+                <ChevronRight class="w-4 h-4 text-white flex-shrink-0 mt-0.5" />
                 <span>{{ ach }}</span>
               </div>
             </div>
@@ -136,7 +136,7 @@ onMounted(() => {
               <span
                 v-for="(tech, tIdx) in exp.technologies"
                 :key="tIdx"
-                class="px-2.5 py-1 rounded-md text-xs font-mono bg-cyber-surfaceLight border border-white/10 text-slate-300"
+                class="px-2.5 py-1 rounded-md text-xs font-mono bg-cyber-surfaceLight border border-white/10 text-neutral-300"
               >
                 {{ tech }}
               </span>

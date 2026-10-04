@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, onUnmounted } from 'vue'
+import { ref, watch, onMounted, onUnmounted } from 'vue'
 import {
   X,
   ExternalLink,
@@ -7,8 +7,13 @@ import {
   CheckCircle,
   Layers,
   Sparkles,
-  Terminal
+  Terminal,
+  ShieldCheck,
+  Database,
+  Cpu,
+  ArrowUpRight,
 } from 'lucide-vue-next'
+import ProjectPreviewDisplay from './ProjectPreviewDisplay.vue'
 
 const props = defineProps({
   project: {
@@ -22,6 +27,7 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['close'])
+const activeTab = ref('overview')
 
 const handleKeyDown = (e) => {
   if (e.key === 'Escape') {
@@ -29,12 +35,25 @@ const handleKeyDown = (e) => {
   }
 }
 
+watch(
+  () => props.isOpen,
+  (val) => {
+    if (val) {
+      document.body.style.overflow = 'hidden'
+      activeTab.value = 'overview'
+    } else {
+      document.body.style.overflow = ''
+    }
+  }
+)
+
 onMounted(() => {
   window.addEventListener('keydown', handleKeyDown)
 })
 
 onUnmounted(() => {
   window.removeEventListener('keydown', handleKeyDown)
+  document.body.style.overflow = ''
 })
 </script>
 
@@ -42,123 +61,185 @@ onUnmounted(() => {
   <Teleport to="body">
     <transition
       enter-active-class="transition duration-200 ease-out"
-      enter-from-class="opacity-0"
-      enter-to-class="opacity-100"
+      enter-from-class="opacity-0 scale-95"
+      enter-to-class="opacity-100 scale-100"
       leave-active-class="transition duration-150 ease-in"
-      leave-from-class="opacity-100"
-      leave-to-class="opacity-0"
+      leave-from-class="opacity-100 scale-100"
+      leave-to-class="opacity-0 scale-95"
     >
       <div
         v-if="isOpen && project"
-        class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-black/80 backdrop-blur-xl"
+        class="fixed inset-0 z-[999] flex items-center justify-center p-3 sm:p-6 overflow-y-auto bg-black/85 backdrop-blur-xl"
         @click.self="emit('close')"
       >
         <div
-          class="relative w-full max-w-3xl rounded-2xl glass-panel border border-cyan-500/30 shadow-[0_0_50px_rgba(0,240,255,0.25)] p-6 sm:p-8 my-8 text-left bg-cyber-surface/95 overflow-hidden"
+          class="relative w-full max-w-4xl max-h-[92vh] flex flex-col rounded-2xl border border-white/20 shadow-[0_0_60px_rgba(255,255,255,0.12)] bg-[#0d0d10] text-left overflow-hidden my-auto"
         >
-          <!-- Close button -->
-          <button
-            @click="emit('close')"
-            class="absolute top-5 right-5 p-2 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:border-cyan-500/40 hover:bg-cyan-500/10 transition-colors"
-            aria-label="Tutup Modal"
-          >
-            <X class="w-5 h-5 text-neon-cyan" />
-          </button>
-
-          <!-- Modal Header -->
-          <div class="mb-6">
-            <div class="flex items-center gap-2 font-mono text-xs text-neon-cyan tracking-wider mb-2">
-              <span class="px-2 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/20">
+          <!-- Modal Top Bar -->
+          <div class="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#121216]/90">
+            <div class="flex items-center gap-2.5">
+              <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/10 border border-white/15 text-white">
                 {{ project.category }}
               </span>
-              <span v-if="project.featured" class="px-2 py-0.5 rounded bg-purple-500/20 border border-purple-500/30 text-purple-300">
+              <span v-if="project.featured" class="px-2 py-0.5 rounded text-[11px] font-mono bg-white/15 text-white font-medium">
                 ★ FEATURED
               </span>
+              <h3 class="text-lg sm:text-xl font-display font-bold text-white tracking-tight truncate max-w-md">
+                {{ project.title }}
+              </h3>
             </div>
-            <h3 class="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">
-              {{ project.title }}
-            </h3>
+
+            <button
+              @click="emit('close')"
+              class="p-2 rounded-xl bg-white/5 border border-white/10 text-neutral-400 hover:text-white hover:border-white/40 hover:bg-white/10 transition-colors"
+              aria-label="Tutup Modal"
+            >
+              <X class="w-5 h-5 text-white" />
+            </button>
           </div>
 
-          <!-- Project Visual Banner -->
-          <div
-            class="w-full h-52 sm:h-64 rounded-xl mb-6 relative overflow-hidden bg-gradient-to-br flex items-center justify-center border border-white/10"
-            :class="project.imageGradient"
-          >
-            <div class="absolute inset-0 cyber-grid-bg opacity-40"></div>
-            <div class="relative z-10 flex flex-col items-center p-4 text-center">
-              <Terminal class="w-12 h-12 text-white/70 mb-2" />
-              <p class="font-mono text-xs text-cyan-300 tracking-wider">
-                LIVE PRODUCTION // REPO INSPECTED
-              </p>
+          <!-- Modal Scrollable Content Body -->
+          <div class="overflow-y-auto p-6 space-y-6 flex-grow">
+            <!-- Project Interface Preview Screen -->
+            <div class="rounded-xl border border-white/15 overflow-hidden shadow-2xl h-64 sm:h-80 w-full bg-black">
+              <ProjectPreviewDisplay :project="project" :is-modal="true" />
             </div>
-          </div>
 
-          <!-- Description -->
-          <div class="space-y-4 mb-6">
-            <div>
-              <h4 class="font-mono text-xs font-semibold uppercase tracking-widest text-slate-400 mb-1">
-                Ikhtisar Proyek
-              </h4>
-              <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            <!-- Modal Navigation Tabs -->
+            <div class="flex border-b border-white/10 gap-2 pb-1">
+              <button
+                @click="activeTab = 'overview'"
+                class="px-4 py-2 text-xs font-mono tracking-wider transition-all rounded-lg"
+                :class="[
+                  activeTab === 'overview'
+                    ? 'bg-white text-black font-semibold'
+                    : 'text-neutral-400 hover:text-white hover:bg-white/5',
+                ]"
+              >
+                Ikhtisar & Solusi
+              </button>
+              <button
+                @click="activeTab = 'features'"
+                class="px-4 py-2 text-xs font-mono tracking-wider transition-all rounded-lg"
+                :class="[
+                  activeTab === 'features'
+                    ? 'bg-white text-black font-semibold'
+                    : 'text-neutral-400 hover:text-white hover:bg-white/5',
+                ]"
+              >
+                Pencapaian & Fitur
+              </button>
+              <button
+                @click="activeTab = 'architecture'"
+                class="px-4 py-2 text-xs font-mono tracking-wider transition-all rounded-lg"
+                :class="[
+                  activeTab === 'architecture'
+                    ? 'bg-white text-black font-semibold'
+                    : 'text-neutral-400 hover:text-white hover:bg-white/5',
+                ]"
+              >
+                Arsitektur & Spesifikasi
+              </button>
+            </div>
+
+            <!-- Tab 1: Overview -->
+            <div v-if="activeTab === 'overview'" class="space-y-4">
+              <p class="text-neutral-300 text-sm sm:text-base leading-relaxed">
                 {{ project.longDescription || project.shortDescription }}
               </p>
+
+              <!-- Key Metrics Strip -->
+              <div v-if="project.metrics && project.metrics.length" class="grid grid-cols-3 gap-3 pt-2">
+                <div
+                  v-for="(metric, mIdx) in project.metrics"
+                  :key="mIdx"
+                  class="p-3.5 rounded-xl bg-black/50 border border-white/10"
+                >
+                  <span class="text-[11px] font-mono text-neutral-400 block">{{ metric.label }}</span>
+                  <span class="text-base sm:text-lg font-bold text-white font-mono mt-0.5 block">{{ metric.value }}</span>
+                </div>
+              </div>
             </div>
 
-            <!-- Key Highlights -->
-            <div v-if="project.highlights && project.highlights.length">
-              <h4 class="font-mono text-xs font-semibold uppercase tracking-widest text-slate-400 mb-2">
-                Pencapaian & Fitur Unggulan
-              </h4>
-              <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                <li
-                  v-for="(hl, hIdx) in project.highlights"
-                  :key="hIdx"
-                  class="flex items-start gap-2 text-xs font-sans text-slate-300 p-2 rounded-lg bg-white/5 border border-white/5"
-                >
-                  <CheckCircle class="w-4 h-4 text-neon-cyan flex-shrink-0 mt-0.5" />
-                  <span>{{ hl }}</span>
-                </li>
-              </ul>
+            <!-- Tab 2: Features & Highlights -->
+            <div v-if="activeTab === 'features'" class="space-y-3">
+              <div
+                v-for="(hl, hIdx) in project.highlights"
+                :key="hIdx"
+                class="flex items-start gap-3 p-3.5 rounded-xl bg-black/40 border border-white/10 text-xs sm:text-sm text-neutral-300"
+              >
+                <CheckCircle class="w-4 h-4 text-white flex-shrink-0 mt-0.5" />
+                <span>{{ hl }}</span>
+              </div>
             </div>
 
-            <!-- Tech Stack Tags -->
-            <div>
-              <h4 class="font-mono text-xs font-semibold uppercase tracking-widest text-slate-400 mb-2">
-                Tech Stack
-              </h4>
-              <div class="flex flex-wrap gap-2">
-                <span
-                  v-for="(tag, tIdx) in project.tags"
-                  :key="tIdx"
-                  class="px-3 py-1 rounded-md text-xs font-mono bg-cyber-surfaceLight border border-white/10 text-cyan-300"
-                >
-                  #{{ tag }}
-                </span>
+            <!-- Tab 3: Architecture & Tech Specs -->
+            <div v-if="activeTab === 'architecture'" class="space-y-3">
+              <div v-if="project.architectureDetails" class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
+                <div class="p-3.5 rounded-xl bg-black/50 border border-white/10 space-y-1">
+                  <span class="text-neutral-500 uppercase text-[10px] block">FRAMEWORK / LAYER</span>
+                  <span class="text-white font-semibold">{{ project.architectureDetails.framework }}</span>
+                </div>
+                <div class="p-3.5 rounded-xl bg-black/50 border border-white/10 space-y-1">
+                  <span class="text-neutral-500 uppercase text-[10px] block">DATABASE ENGINE</span>
+                  <span class="text-white font-semibold">{{ project.architectureDetails.database }}</span>
+                </div>
+                <div class="p-3.5 rounded-xl bg-black/50 border border-white/10 space-y-1">
+                  <span class="text-neutral-500 uppercase text-[10px] block">SECURITY STANDARDS</span>
+                  <span class="text-white font-semibold">{{ project.architectureDetails.security }}</span>
+                </div>
+                <div class="p-3.5 rounded-xl bg-black/50 border border-white/10 space-y-1">
+                  <span class="text-neutral-500 uppercase text-[10px] block">INTEGRATION & API</span>
+                  <span class="text-white font-semibold">{{ project.architectureDetails.integration }}</span>
+                </div>
+              </div>
+
+              <!-- Tech Stack Tags -->
+              <div class="pt-2">
+                <h4 class="font-mono text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-2">
+                  Tags & Teknologi Terpasang
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    v-for="(tag, tIdx) in project.tags"
+                    :key="tIdx"
+                    class="px-3 py-1 rounded-md text-xs font-mono bg-white/5 border border-white/10 text-white"
+                  >
+                    #{{ tag }}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Action Buttons -->
-          <div class="flex flex-wrap items-center gap-3 pt-4 border-t border-white/10">
-            <a
-              :href="project.demoUrl"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-neon-cyan text-slate-950 font-mono font-bold text-xs tracking-wider shadow-neon-cyan hover:bg-white hover:scale-105 transition-all"
-            >
-              <ExternalLink class="w-4 h-4" />
-              <span>LIVE DEMO</span>
-            </a>
-            <a
-              :href="project.githubUrl"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-cyber-surfaceLight border border-white/15 text-slate-200 hover:text-neon-cyan hover:border-cyan-500/40 font-mono font-semibold text-xs tracking-wider transition-all"
-            >
-              <Github class="w-4 h-4" />
-              <span>VIEW SOURCE</span>
-            </a>
+          <!-- Modal Action Footer -->
+          <div class="flex flex-wrap items-center justify-between gap-3 px-6 py-4 border-t border-white/10 bg-[#121216]/90">
+            <div class="text-xs font-mono text-neutral-400">
+              Status: <span class="text-white font-medium">{{ project.systemStatus || 'Active' }}</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <a
+                :href="project.githubUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/15 text-neutral-200 hover:text-white hover:border-white/40 font-mono text-xs font-semibold transition-all"
+              >
+                <Github class="w-4 h-4" />
+                <span>Source Code</span>
+              </a>
+
+              <a
+                v-if="project.demoUrl && project.demoUrl !== '#'"
+                :href="project.demoUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white text-black font-mono text-xs font-bold shadow-[0_0_15px_rgba(255,255,255,0.3)] hover:bg-neutral-200 transition-all"
+              >
+                <span>Live Demo</span>
+                <ExternalLink class="w-3.5 h-3.5" />
+              </a>
+            </div>
           </div>
         </div>
       </div>

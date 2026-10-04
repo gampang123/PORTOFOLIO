@@ -15,7 +15,7 @@ const initThree = () => {
 
   // 1. Scene setup
   scene = new THREE.Scene()
-  scene.fog = new THREE.FogExp2(0x07080e, 0.0018)
+  scene.fog = new THREE.FogExp2(0x000000, 0.0018)
 
   const width = window.innerWidth
   const height = window.innerHeight
@@ -33,10 +33,10 @@ const initThree = () => {
   })
   renderer.setSize(width, height)
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-  renderer.setClearColor(0x07080e, 1)
+  renderer.setClearColor(0x000000, 1)
   canvasContainer.value.appendChild(renderer.domElement)
 
-  // 4. Create Interactive Particle Grid (Wave Simulation)
+  // 4. Create Interactive Particle Grid (Monochrome Wave Simulation)
   const particleCountX = 55
   const particleCountY = 55
   const totalParticles = particleCountX * particleCountY
@@ -44,8 +44,8 @@ const initThree = () => {
   const scales = new Float32Array(totalParticles)
   const colors = new Float32Array(totalParticles * 3)
 
-  const colorCyan = new THREE.Color(0x00f0ff)
-  const colorPurple = new THREE.Color(0x8b5cf6)
+  const colorWhite = new THREE.Color(0xffffff)
+  const colorSlate = new THREE.Color(0x71717a)
   const tempColor = new THREE.Color()
 
   const separation = 30
@@ -59,9 +59,9 @@ const initThree = () => {
 
       scales[cIndex] = 1.0
 
-      // Gradient from cyan to purple based on position
+      // Monochrome gradient from pure white to slate grey
       const ratio = (ix + iy) / (particleCountX + particleCountY)
-      tempColor.lerpColors(colorCyan, colorPurple, ratio)
+      tempColor.lerpColors(colorWhite, colorSlate, ratio)
       colors[i] = tempColor.r
       colors[i + 1] = tempColor.g
       colors[i + 2] = tempColor.b
@@ -77,10 +77,10 @@ const initThree = () => {
 
   // Custom particle material with vertex colors
   const particleMaterial = new THREE.PointsMaterial({
-    size: 2.6,
+    size: 2.4,
     vertexColors: true,
     transparent: true,
-    opacity: 0.75,
+    opacity: 0.7,
     blending: THREE.AdditiveBlending,
   })
 
@@ -94,10 +94,10 @@ const initThree = () => {
 
   // Wireframe
   const wireMaterial = new THREE.MeshBasicMaterial({
-    color: 0x00f0ff,
+    color: 0xffffff,
     wireframe: true,
     transparent: true,
-    opacity: 0.14,
+    opacity: 0.12,
   })
   geomMesh = new THREE.Mesh(icosahedronGeometry, wireMaterial)
   geomMesh.position.set(160, 40, -50)
@@ -105,10 +105,10 @@ const initThree = () => {
 
   // Vertex Points
   const pointsMaterial = new THREE.PointsMaterial({
-    color: 0xa855f7,
-    size: 4,
+    color: 0xffffff,
+    size: 3.5,
     transparent: true,
-    opacity: 0.85,
+    opacity: 0.75,
     blending: THREE.AdditiveBlending,
   })
   pointsMesh = new THREE.Points(icosahedronGeometry, pointsMaterial)
@@ -126,8 +126,8 @@ const initThree = () => {
   const dustGeometry = new THREE.BufferGeometry()
   dustGeometry.setAttribute('position', new THREE.BufferAttribute(dustPositions, 3))
   const dustMaterial = new THREE.PointsMaterial({
-    color: 0x00f0ff,
-    size: 1.8,
+    color: 0xffffff,
+    size: 1.6,
     transparent: true,
     opacity: 0.35,
     blending: THREE.AdditiveBlending,
@@ -233,12 +233,12 @@ onUnmounted(() => {
     class="fixed inset-0 pointer-events-none -z-10 overflow-hidden"
     aria-hidden="true"
   >
-    <!-- Ambient glowing radial light overlay -->
+    <!-- Ambient subtle monochrome radial light overlay -->
     <div
-      class="absolute top-1/4 -left-48 w-96 h-96 bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none"
+      class="absolute top-1/4 -left-48 w-96 h-96 bg-white/[0.03] rounded-full blur-[120px] pointer-events-none"
     ></div>
     <div
-      class="absolute bottom-1/3 -right-48 w-96 h-96 bg-purple-600/10 rounded-full blur-[140px] pointer-events-none"
+      class="absolute bottom-1/3 -right-48 w-96 h-96 bg-neutral-400/[0.03] rounded-full blur-[140px] pointer-events-none"
     ></div>
   </div>
 </template>

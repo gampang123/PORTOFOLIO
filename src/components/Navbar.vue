@@ -67,21 +67,21 @@ onUnmounted(() => {
         class="flex items-center gap-2 group font-mono text-lg tracking-wider"
       >
         <div
-          class="w-9 h-9 rounded-lg bg-cyber-surfaceLight border border-cyan-500/30 flex items-center justify-center text-neon-cyan shadow-[0_0_15px_rgba(0,240,255,0.2)] group-hover:border-neon-cyan group-hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transition-all duration-300"
+          class="w-9 h-9 rounded-lg bg-cyber-surfaceLight border border-white/20 flex items-center justify-center text-white shadow-[0_0_15px_rgba(255,255,255,0.15)] group-hover:border-white group-hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all duration-300"
         >
           <span class="font-bold text-base">&lt;/&gt;</span>
         </div>
         <div class="flex items-baseline">
-          <span class="font-display font-bold text-white text-lg tracking-tight group-hover:text-neon-cyan transition-colors">
+          <span class="font-display font-bold text-white text-lg tracking-tight group-hover:text-neutral-300 transition-colors">
             {{ personalData.nickName }}
           </span>
-          <span class="text-neon-cyan font-bold text-xl leading-none">.</span>
-          <span class="text-xs font-mono text-slate-400 ml-1 hidden sm:inline-block">dev</span>
+          <span class="text-white font-bold text-xl leading-none">.</span>
+          <span class="text-xs font-mono text-neutral-400 ml-1 hidden sm:inline-block">dev</span>
         </div>
       </a>
 
       <!-- Desktop Navigation Links -->
-      <nav class="hidden md:flex items-center gap-1 bg-cyber-surface/60 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/5 shadow-inner">
+      <nav class="hidden md:flex items-center gap-1 bg-cyber-surface/60 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/10 shadow-inner">
         <a
           v-for="link in navLinks"
           :key="link.name"
@@ -89,8 +89,8 @@ onUnmounted(() => {
           class="relative px-3.5 py-1.5 text-xs uppercase tracking-widest font-mono font-medium transition-all duration-200 rounded-full"
           :class="[
             activeSection === link.href.replace('#', '')
-              ? 'text-neon-cyan bg-cyan-500/10 shadow-[0_0_12px_rgba(0,240,255,0.2)] font-semibold'
-              : 'text-slate-400 hover:text-white hover:bg-white/5',
+              ? 'text-white bg-white/10 shadow-[0_0_12px_rgba(255,255,255,0.15)] font-semibold border border-white/20'
+              : 'text-neutral-400 hover:text-white hover:bg-white/5',
           ]"
         >
           {{ link.name }}
@@ -100,16 +100,16 @@ onUnmounted(() => {
       <!-- Right Action: Status Pill & CTA Button -->
       <div class="hidden lg:flex items-center gap-4">
         <!-- Availability indicator -->
-        <div class="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/40 border border-emerald-500/30 text-xs font-mono text-emerald-400">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-          <span class="w-2 h-2 -ml-4 rounded-full bg-emerald-400"></span>
+        <div class="flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/15 text-xs font-mono text-neutral-300">
+          <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
+          <span class="w-2 h-2 -ml-4 rounded-full bg-white"></span>
           <span class="text-[11px] font-medium tracking-wide">Available for Hire</span>
         </div>
 
         <!-- Contact CTA Button -->
         <a
           href="#contact"
-          class="relative inline-flex items-center gap-2 px-4 py-2 text-xs font-mono font-semibold tracking-wider text-slate-950 bg-neon-cyan rounded-lg transition-all duration-300 shadow-[0_0_20px_rgba(0,240,255,0.35)] hover:shadow-[0_0_25px_rgba(0,240,255,0.6)] hover:bg-white hover:scale-105"
+          class="relative inline-flex items-center gap-2 px-4 py-2 text-xs font-mono font-semibold tracking-wider text-black bg-white rounded-lg transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.5)] hover:bg-neutral-200 hover:scale-105"
         >
           <Send class="w-3.5 h-3.5" />
           <span>CONTACT</span>
@@ -120,16 +120,16 @@ onUnmounted(() => {
       <div class="flex items-center md:hidden gap-3">
         <a
           href="#contact"
-          class="text-xs font-mono font-semibold px-3 py-1.5 bg-neon-cyan/10 border border-neon-cyan/40 text-neon-cyan rounded-md"
+          class="text-xs font-mono font-semibold px-3 py-1.5 bg-white/10 border border-white/30 text-white rounded-md"
         >
           Contact
         </a>
         <button
           @click="toggleMobileMenu"
-          class="p-2 rounded-lg bg-cyber-surface border border-white/10 text-slate-300 hover:text-white focus:outline-none"
+          class="p-2 rounded-lg bg-cyber-surface border border-white/10 text-neutral-300 hover:text-white focus:outline-none"
           aria-label="Toggle Navigation Menu"
         >
-          <X v-if="isMobileMenuOpen" class="w-6 h-6 text-neon-cyan" />
+          <X v-if="isMobileMenuOpen" class="w-6 h-6 text-white" />
           <Menu v-else class="w-6 h-6" />
         </button>
       </div>
@@ -148,8 +148,8 @@ onUnmounted(() => {
         v-if="isMobileMenuOpen"
         class="md:hidden bg-cyber-bg/95 backdrop-blur-2xl border-b border-white/10 px-6 py-6 space-y-4"
       >
-        <div class="flex items-center gap-2 pb-3 border-b border-white/5 text-xs font-mono text-emerald-400">
-          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+        <div class="flex items-center gap-2 pb-3 border-b border-white/5 text-xs font-mono text-neutral-300">
+          <span class="w-2 h-2 rounded-full bg-white"></span>
           <span>{{ personalData.status }}</span>
         </div>
         <div class="flex flex-col space-y-2">
@@ -161,12 +161,12 @@ onUnmounted(() => {
             class="px-4 py-2.5 rounded-lg text-sm font-mono tracking-wider transition-colors flex items-center justify-between"
             :class="[
               activeSection === link.href.replace('#', '')
-                ? 'bg-cyan-500/15 text-neon-cyan font-semibold border border-cyan-500/30'
-                : 'text-slate-300 hover:bg-white/5 hover:text-white',
+                ? 'bg-white/10 text-white font-semibold border border-white/20'
+                : 'text-neutral-300 hover:bg-white/5 hover:text-white',
             ]"
           >
             <span>{{ link.name }}</span>
-            <span class="text-xs text-slate-500 font-mono">0{{ navLinks.indexOf(link) + 1 }}</span>
+            <span class="text-xs text-neutral-500 font-mono">0{{ navLinks.indexOf(link) + 1 }}</span>
           </a>
         </div>
       </div>

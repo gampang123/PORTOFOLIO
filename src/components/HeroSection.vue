@@ -84,17 +84,17 @@ onMounted(() => {
     <!-- Top Terminal Tag Badge -->
     <div class="hero-badge inline-flex items-center gap-2 mb-6">
       <div
-        class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-cyber-surfaceLight/80 border border-cyan-500/30 text-xs font-mono text-cyan-300 shadow-[0_0_15px_rgba(0,240,255,0.15)]"
+        class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/20 text-xs font-mono text-neutral-300 shadow-[0_0_15px_rgba(255,255,255,0.08)]"
       >
-        <span class="inline-block w-2 h-2 rounded-full bg-neon-cyan animate-ping"></span>
-        <Terminal class="w-3.5 h-3.5 text-neon-cyan" />
+        <span class="inline-block w-2 h-2 rounded-full bg-white animate-ping"></span>
+        <Terminal class="w-3.5 h-3.5 text-white" />
         <span class="tracking-wide">HELLO WORLD // SYSTEM READY</span>
       </div>
     </div>
 
     <!-- Main Bold Typography Headline -->
     <div class="space-y-2 mb-6">
-      <h2 class="hero-title-line font-mono text-sm sm:text-base md:text-lg text-slate-400 tracking-wider">
+      <h2 class="hero-title-line font-mono text-sm sm:text-base md:text-lg text-neutral-400 tracking-wider">
         Hi, my name is <span class="text-white font-medium">{{ personalData.name }}</span>
       </h2>
 
@@ -104,8 +104,8 @@ onMounted(() => {
       </h1>
 
       <!-- Dynamic Role Switcher -->
-      <div class="hero-title-line flex items-center gap-3 pt-2 text-xl sm:text-2xl md:text-3xl font-mono text-slate-300">
-        <span class="text-neon-cyan font-bold">&gt;</span>
+      <div class="hero-title-line flex items-center gap-3 pt-2 text-xl sm:text-2xl md:text-3xl font-mono text-neutral-300">
+        <span class="text-white font-bold">&gt;</span>
         <div class="relative overflow-hidden h-9 sm:h-10 flex items-center">
           <transition
             mode="out-in"
@@ -116,7 +116,7 @@ onMounted(() => {
             leave-from-class="opacity-100 translate-y-0"
             leave-to-class="opacity-0 -translate-y-4"
           >
-            <span :key="roleIndex" class="font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
+            <span :key="roleIndex" class="font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-neutral-400">
               {{ roles[roleIndex] }}
             </span>
           </transition>
@@ -125,7 +125,7 @@ onMounted(() => {
     </div>
 
     <!-- Short Tagline -->
-    <p class="hero-tagline max-w-2xl text-slate-400 text-base sm:text-lg leading-relaxed mb-8">
+    <p class="hero-tagline max-w-2xl text-neutral-400 text-base sm:text-lg leading-relaxed mb-8">
       {{ personalData.bio }}
     </p>
 
@@ -134,7 +134,7 @@ onMounted(() => {
       <!-- Primary Action -->
       <a
         href="#projects"
-        class="group relative inline-flex items-center gap-3 px-6 py-3.5 rounded-xl bg-neon-cyan text-slate-950 font-mono font-bold text-sm tracking-wider shadow-neon-cyan hover:shadow-[0_0_30px_rgba(0,240,255,0.7)] hover:bg-white hover:-translate-y-0.5 transition-all duration-300"
+        class="group relative inline-flex items-center gap-3 px-6 py-3.5 rounded-xl bg-white text-black font-mono font-bold text-sm tracking-wider shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] hover:bg-neutral-200 hover:-translate-y-0.5 transition-all duration-300"
       >
         <span>EXPLORE PROJECTS</span>
         <ArrowRight class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -143,9 +143,9 @@ onMounted(() => {
       <!-- Secondary Action: CV Download -->
       <a
         href="#contact"
-        class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-cyber-surface/80 border border-white/10 hover:border-cyan-500/40 text-slate-200 hover:text-neon-cyan font-mono text-sm font-semibold tracking-wider backdrop-blur-md hover:-translate-y-0.5 transition-all duration-300 shadow-glass"
+        class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-cyber-surface/80 border border-white/15 hover:border-white text-white font-mono text-sm font-semibold tracking-wider backdrop-blur-md hover:-translate-y-0.5 transition-all duration-300 shadow-glass"
       >
-        <Mail class="w-4 h-4 text-neon-cyan" />
+        <Mail class="w-4 h-4 text-white" />
         <span>LET'S CONNECT</span>
       </a>
 
@@ -155,7 +155,7 @@ onMounted(() => {
           :href="personalData.socials.github"
           target="_blank"
           rel="noopener noreferrer"
-          class="hero-socials p-2.5 rounded-lg bg-cyber-surfaceLight/60 border border-white/5 text-slate-400 hover:text-neon-cyan hover:border-cyan-500/30 transition-all hover:scale-110"
+          class="hero-socials p-2.5 rounded-lg bg-cyber-surfaceLight/60 border border-white/10 text-neutral-400 hover:text-white hover:border-white/40 transition-all hover:scale-110"
           aria-label="GitHub Profile"
         >
           <Github class="w-4 h-4" />
@@ -164,7 +164,7 @@ onMounted(() => {
           :href="personalData.socials.linkedin"
           target="_blank"
           rel="noopener noreferrer"
-          class="hero-socials p-2.5 rounded-lg bg-cyber-surfaceLight/60 border border-white/5 text-slate-400 hover:text-neon-cyan hover:border-cyan-500/30 transition-all hover:scale-110"
+          class="hero-socials p-2.5 rounded-lg bg-cyber-surfaceLight/60 border border-white/10 text-neutral-400 hover:text-white hover:border-white/40 transition-all hover:scale-110"
           aria-label="LinkedIn Profile"
         >
           <Linkedin class="w-4 h-4" />
@@ -173,7 +173,7 @@ onMounted(() => {
           :href="personalData.socials.instagram"
           target="_blank"
           rel="noopener noreferrer"
-          class="hero-socials p-2.5 rounded-lg bg-cyber-surfaceLight/60 border border-white/5 text-slate-400 hover:text-neon-cyan hover:border-cyan-500/30 transition-all hover:scale-110"
+          class="hero-socials p-2.5 rounded-lg bg-cyber-surfaceLight/60 border border-white/10 text-neutral-400 hover:text-white hover:border-white/40 transition-all hover:scale-110"
           aria-label="Instagram Profile"
         >
           <Instagram class="w-4 h-4" />
@@ -191,7 +191,7 @@ onMounted(() => {
         <span class="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight flex items-baseline gap-1">
           <span class="cyber-gradient-text">{{ stat.value }}</span>
         </span>
-        <span class="text-xs font-mono text-slate-400 uppercase tracking-wider mt-0.5">
+        <span class="text-xs font-mono text-neutral-400 uppercase tracking-wider mt-0.5">
           {{ stat.label }}
         </span>
       </div>
@@ -200,11 +200,11 @@ onMounted(() => {
     <!-- Scroll Down Floating Indicator -->
     <a
       href="#about"
-      class="mt-12 self-center inline-flex flex-col items-center gap-2 text-slate-500 hover:text-neon-cyan transition-colors font-mono text-xs tracking-widest uppercase group"
+      class="mt-12 self-center inline-flex flex-col items-center gap-2 text-neutral-500 hover:text-white transition-colors font-mono text-xs tracking-widest uppercase group"
       aria-label="Scroll to About Section"
     >
       <span>Scroll To Explore</span>
-      <ChevronDown class="w-4 h-4 animate-bounce text-neon-cyan" />
+      <ChevronDown class="w-4 h-4 animate-bounce text-white" />
     </a>
   </section>
 </template>

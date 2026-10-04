@@ -9,19 +9,18 @@ export default {
     extend: {
       colors: {
         cyber: {
-          bg: '#07080e',
-          surface: '#0d101a',
-          surfaceLight: '#141826',
-          card: 'rgba(14, 18, 30, 0.65)',
-          border: 'rgba(255, 255, 255, 0.08)',
-          borderGlow: 'rgba(0, 240, 255, 0.25)',
+          bg: '#000000',
+          surface: '#0d0d0f',
+          surfaceLight: '#17171a',
+          card: 'rgba(18, 18, 20, 0.75)',
+          border: 'rgba(255, 255, 255, 0.1)',
+          borderGlow: 'rgba(255, 255, 255, 0.3)',
         },
-        neon: {
-          cyan: '#00f0ff',
-          cyanDark: '#0891b2',
-          purple: '#a855f7',
-          pink: '#ec4899',
-          green: '#10b981',
+        mono: {
+          white: '#ffffff',
+          light: '#f4f4f5',
+          muted: '#a1a1aa',
+          dark: '#18181b',
         }
       },
       fontFamily: {
@@ -30,11 +29,10 @@ export default {
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       boxShadow: {
-        'neon-cyan': '0 0 25px -4px rgba(0, 240, 255, 0.5)',
-        'neon-purple': '0 0 25px -4px rgba(168, 85, 247, 0.5)',
-        'neon-sm': '0 0 10px rgba(0, 240, 255, 0.35)',
-        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.4)',
-        'glass-hover': '0 8px 32px 0 rgba(0, 240, 255, 0.15)',
+        'mono-glow': '0 0 25px -4px rgba(255, 255, 255, 0.35)',
+        'mono-sm': '0 0 12px rgba(255, 255, 255, 0.25)',
+        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.6)',
+        'glass-hover': '0 8px 32px 0 rgba(255, 255, 255, 0.12)',
       },
       animation: {
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
