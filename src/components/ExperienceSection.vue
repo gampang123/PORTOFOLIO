@@ -54,38 +54,36 @@ onMounted(() => {
     class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative"
   >
     <!-- Section Header -->
-    <div class="experience-header mb-16">
-      <div class="flex items-center gap-2 font-mono text-xs text-neutral-400 tracking-widest uppercase mb-2">
-        <span class="text-neutral-600">//</span>
-        <span>04. CAREER & MILESTONES</span>
-        <div class="h-px bg-white/20 flex-grow max-w-[120px]"></div>
+    <div class="experience-header mb-14">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="w-2 h-5 bg-crimson-600 rounded-sm"></span>
+        <h2 class="font-poster text-3xl sm:text-4xl lg:text-5xl text-white uppercase tracking-wider">
+          PROFESSIONAL EXPERIENCE
+        </h2>
       </div>
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white tracking-tight">
-        Rekam Jejak <span class="cyber-gradient-text">Profesional</span>.
-      </h2>
-      <p class="text-neutral-400 text-sm sm:text-base max-w-xl mt-3">
-        Pengalaman membangun sistem web berskala produksi, memimpin arsitektur antarmuka, dan berkolaborasi dalam tim multidisiplin.
+      <p class="text-neutral-400 text-xs sm:text-sm font-sans max-w-xl">
+        Pengalaman membangun sistem web berskala produksi, integrasi API, arsitektur database, dan implementasi standar keamanan OWASP.
       </p>
     </div>
 
     <!-- Timeline Wrapper -->
     <div class="timeline-container relative max-w-4xl mx-auto pl-6 sm:pl-10">
-      <!-- Vertical Glowing Line -->
+      <!-- Vertical Line -->
       <div
-        class="absolute left-2 sm:left-3 top-4 bottom-4 w-0.5 bg-gradient-to-b from-white via-neutral-500 to-transparent shadow-[0_0_10px_rgba(255,255,255,0.25)]"
+        class="absolute left-2 sm:left-3 top-4 bottom-4 w-0.5 bg-gradient-to-b from-crimson-600 via-neutral-700 to-transparent"
       ></div>
 
-      <div class="space-y-12">
+      <div class="space-y-10">
         <div
           v-for="(exp, idx) in experiencesData"
           :key="exp.id"
           class="timeline-entry relative group"
         >
-          <!-- Glowing Node on Timeline -->
+          <!-- Node on Timeline -->
           <div
-            class="absolute -left-6 sm:-left-10 top-1.5 w-5 h-5 rounded-full bg-black border-2 border-white flex items-center justify-center shadow-[0_0_12px_rgba(255,255,255,0.5)] group-hover:scale-125 group-hover:bg-white transition-all duration-300"
+            class="absolute -left-6 sm:-left-10 top-1.5 w-5 h-5 rounded-full bg-black border-2 border-crimson-600 flex items-center justify-center shadow-[0_0_10px_rgba(220,38,38,0.5)] group-hover:scale-125 group-hover:bg-crimson-600 transition-all duration-300"
           >
-            <span class="w-1.5 h-1.5 rounded-full bg-white group-hover:bg-black transition-colors"></span>
+            <span class="w-1.5 h-1.5 rounded-full bg-crimson-500 group-hover:bg-white transition-colors"></span>
           </div>
 
           <!-- Content Card -->

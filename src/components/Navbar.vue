@@ -8,9 +8,8 @@ const isMobileMenuOpen = ref(false)
 const activeSection = ref('hero')
 
 const navLinks = [
-  { name: 'About', href: '#about' },
-  { name: 'Skills', href: '#skills' },
   { name: 'Projects', href: '#projects' },
+  { name: 'Process & Skills', href: '#process' },
   { name: 'Experience', href: '#experience' },
   { name: 'Contact', href: '#contact' },
 ]
@@ -18,7 +17,7 @@ const navLinks = [
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 40
 
-  const sections = ['hero', 'about', 'skills', 'projects', 'experience', 'contact']
+  const sections = ['hero', 'projects', 'process', 'experience', 'contact']
   const scrollPosition = window.scrollY + 200
 
   for (const section of sections) {
@@ -89,7 +88,7 @@ onUnmounted(() => {
           class="relative px-3.5 py-1.5 text-xs uppercase tracking-widest font-mono font-medium transition-all duration-200 rounded-full"
           :class="[
             activeSection === link.href.replace('#', '')
-              ? 'text-white bg-white/10 shadow-[0_0_12px_rgba(255,255,255,0.15)] font-semibold border border-white/20'
+              ? 'text-white bg-crimson-600/30 shadow-[0_0_12px_rgba(220,38,38,0.3)] font-semibold border border-crimson-500/50'
               : 'text-neutral-400 hover:text-white hover:bg-white/5',
           ]"
         >
@@ -101,15 +100,15 @@ onUnmounted(() => {
       <div class="hidden lg:flex items-center gap-4">
         <!-- Availability indicator -->
         <div class="flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/15 text-xs font-mono text-neutral-300">
-          <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
-          <span class="w-2 h-2 -ml-4 rounded-full bg-white"></span>
+          <span class="w-2 h-2 rounded-full bg-crimson-600 animate-ping"></span>
+          <span class="w-2 h-2 -ml-4 rounded-full bg-crimson-600"></span>
           <span class="text-[11px] font-medium tracking-wide">Available for Hire</span>
         </div>
 
         <!-- Contact CTA Button -->
         <a
           href="#contact"
-          class="relative inline-flex items-center gap-2 px-4 py-2 text-xs font-mono font-semibold tracking-wider text-black bg-white rounded-lg transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.5)] hover:bg-neutral-200 hover:scale-105"
+          class="relative inline-flex items-center gap-2 px-4 py-2 text-xs font-mono font-bold tracking-wider text-white bg-crimson-600 hover:bg-crimson-500 rounded-lg transition-all duration-300 shadow-[0_0_15px_rgba(220,38,38,0.4)] hover:shadow-[0_0_20px_rgba(220,38,38,0.6)] hover:scale-105"
         >
           <Send class="w-3.5 h-3.5" />
           <span>CONTACT</span>

@@ -42,34 +42,46 @@ const setCategory = (cat) => {
     id="projects"
     class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative"
   >
-    <!-- Section Header & Filter Tabs -->
-    <div class="mb-12">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-neutral-300 mb-3">
-        <span>03</span>
-        <span class="text-neutral-600">•</span>
-        <span>PORTFOLIO SHOWCASE</span>
-      </div>
-
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
-        <div>
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white tracking-tight">
-            Karya Pilihan & <span class="cyber-gradient-text">Eksplorasi Kode</span>.
+    <!-- Section Header matching Reference 1: SELECTED PROJECTS ────── VIEW ALL PROJECTS -->
+    <div class="mb-10">
+      <div class="flex items-center justify-between gap-4 mb-4">
+        <div class="flex items-center gap-3">
+          <span class="w-2 h-5 bg-crimson-600 rounded-sm"></span>
+          <h2 class="font-poster text-3xl sm:text-4xl lg:text-5xl text-white uppercase tracking-wider">
+            SELECTED PROJECTS
           </h2>
-          <p class="text-neutral-400 text-sm sm:text-base max-w-xl mt-3 leading-relaxed">
-            Koleksi aplikasi web enterprise, sistem kasir SaaS multi-tenant, dan portal publik yang telah saya rancang dan kembangkan.
-          </p>
         </div>
 
-        <!-- Filter Tabs -->
-        <div class="flex flex-wrap gap-1.5 p-1 rounded-xl bg-neutral-900/80 border border-white/10 backdrop-blur-md">
+        <div class="hidden sm:flex flex-grow h-px bg-white/10 mx-6"></div>
+
+        <div class="flex items-center gap-2">
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-xs font-mono tracking-widest text-neutral-400 hover:text-crimson-500 uppercase flex items-center gap-2 transition-colors"
+          >
+            <span>VIEW ALL PROJECTS</span>
+            <ArrowUpRight class="w-4 h-4 text-crimson-500" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="flex items-center justify-between flex-wrap gap-4 pt-2">
+        <p class="text-neutral-400 text-xs sm:text-sm font-sans max-w-xl">
+          Sistem web enterprise, platform kasir SaaS multi-tenant, dan portal digital dengan arsitektur aman.
+        </p>
+
+        <div class="flex flex-wrap gap-1.5 p-1 rounded-xl bg-neutral-900/80 border border-white/10">
           <button
             v-for="category in projectCategories"
             :key="category"
             @click="setCategory(category)"
-            class="px-3.5 py-1.5 rounded-lg text-xs font-mono tracking-wider transition-all duration-200 cursor-pointer"
+            class="px-3 py-1 rounded-lg text-xs font-mono tracking-wider transition-all duration-200 cursor-pointer"
             :class="[
               selectedCategory === category
-                ? 'bg-white text-black font-bold shadow-sm'
+                ? 'bg-crimson-600 text-white font-bold shadow-[0_0_12px_rgba(220,38,38,0.5)]'
                 : 'text-neutral-400 hover:text-white hover:bg-white/5',
             ]"
           >
@@ -82,9 +94,9 @@ const setCategory = (cat) => {
     <!-- Projects Grid (Fast, instantaneous render with smooth CSS hover) -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
       <div
-        v-for="project in filteredProjects"
+        v-for="(project, pIdx) in filteredProjects"
         :key="project.id"
-        class="group rounded-2xl border border-white/10 bg-[#0d0d10]/90 hover:border-white/30 backdrop-blur-xl flex flex-col justify-between overflow-hidden shadow-glass transition-all duration-300 hover:-translate-y-1"
+        class="group rounded-2xl border border-white/10 bg-[#0d0d10] hover:border-crimson-500/50 backdrop-blur-xl flex flex-col justify-between overflow-hidden shadow-2xl transition-all duration-300 hover:-translate-y-1"
       >
         <!-- Project Preview Graphic Container (Clickable to open modal) -->
         <div
@@ -96,34 +108,31 @@ const setCategory = (cat) => {
 
           <!-- Hover Overlay with Inspect Hint -->
           <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center gap-2 text-xs font-mono text-white backdrop-blur-[2px] pointer-events-none">
-            <Maximize2 class="w-4 h-4 text-white" />
+            <Maximize2 class="w-4 h-4 text-crimson-500" />
             <span>Klik untuk Detail & Arsitektur</span>
           </div>
         </div>
 
-        <!-- Card Body -->
+        <!-- Card Body matching Reference 1 layout -->
         <div class="p-6 flex-grow flex flex-col justify-between">
           <div>
-            <!-- Category and Featured tags -->
-            <div class="flex items-center justify-between gap-2 mb-2.5">
-              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-neutral-300">
-                {{ project.category }}
+            <!-- Top number & Category bar -->
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="font-poster text-2xl text-crimson-500 tracking-wider">
+                0{{ pIdx + 1 }}
               </span>
-              <span
-                v-if="project.featured"
-                class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/15 text-white font-medium"
-              >
-                ★ FEATURED
+              <span class="text-[10px] font-mono tracking-wider px-2 py-0.5 rounded bg-white/5 border border-white/10 text-neutral-300 uppercase">
+                {{ project.category }}
               </span>
             </div>
 
             <!-- Title (Clickable) -->
             <h3
               @click="openProjectModal(project)"
-              class="text-lg sm:text-xl font-display font-bold text-white group-hover:text-neutral-200 transition-colors cursor-pointer mb-2 flex items-center justify-between"
+              class="text-lg sm:text-xl font-display font-bold text-white group-hover:text-crimson-400 transition-colors cursor-pointer mb-2 flex items-center justify-between"
             >
               <span>{{ project.title }}</span>
-              <ArrowUpRight class="w-4 h-4 text-neutral-500 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all flex-shrink-0" />
+              <ArrowUpRight class="w-4 h-4 text-neutral-500 group-hover:text-crimson-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all flex-shrink-0" />
             </h3>
 
             <!-- Short Description -->
@@ -153,7 +162,7 @@ const setCategory = (cat) => {
             <div class="flex items-center justify-between pt-3 border-t border-white/10">
               <button
                 @click="openProjectModal(project)"
-                class="text-xs font-mono text-neutral-300 hover:text-white transition-colors flex items-center gap-1.5 cursor-pointer"
+                class="text-xs font-mono text-neutral-300 hover:text-crimson-400 transition-colors flex items-center gap-1.5 cursor-pointer"
               >
                 <span>Lihat Detail & Specs</span>
                 <Maximize2 class="w-3.5 h-3.5" />

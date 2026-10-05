@@ -89,34 +89,8 @@ const initThree = () => {
   particlesMesh.rotation.x = 0.25
   scene.add(particlesMesh)
 
-  // 5. Floating Aesthetic 3D Object (Icosahedron Wireframe & Points)
-  const icosahedronGeometry = new THREE.IcosahedronGeometry(90, 1)
-
-  // Wireframe
-  const wireMaterial = new THREE.MeshBasicMaterial({
-    color: 0xffffff,
-    wireframe: true,
-    transparent: true,
-    opacity: 0.12,
-  })
-  geomMesh = new THREE.Mesh(icosahedronGeometry, wireMaterial)
-  geomMesh.position.set(160, 40, -50)
-  scene.add(geomMesh)
-
-  // Vertex Points
-  const pointsMaterial = new THREE.PointsMaterial({
-    color: 0xffffff,
-    size: 3.5,
-    transparent: true,
-    opacity: 0.75,
-    blending: THREE.AdditiveBlending,
-  })
-  pointsMesh = new THREE.Points(icosahedronGeometry, pointsMaterial)
-  pointsMesh.position.copy(geomMesh.position)
-  scene.add(pointsMesh)
-
-  // 6. Floating ambient dust particles
-  const dustCount = 200
+  // 5. Ambient subtle depth elements (no heavy spinning wireframe)
+  const dustCount = 80
   const dustPositions = new Float32Array(dustCount * 3)
   for (let d = 0; d < dustCount * 3; d += 3) {
     dustPositions[d] = (Math.random() - 0.5) * 1200
@@ -127,19 +101,18 @@ const initThree = () => {
   dustGeometry.setAttribute('position', new THREE.BufferAttribute(dustPositions, 3))
   const dustMaterial = new THREE.PointsMaterial({
     color: 0xffffff,
-    size: 1.6,
+    size: 1.2,
     transparent: true,
-    opacity: 0.35,
+    opacity: 0.25,
     blending: THREE.AdditiveBlending,
   })
   const dustMesh = new THREE.Points(dustGeometry, dustMaterial)
   scene.add(dustMesh)
-
-  // 7. Event listeners
+  // Event listeners
   window.addEventListener('mousemove', onMouseMove, { passive: true })
   window.addEventListener('resize', onWindowResize, { passive: true })
 
-  // 8. Start loop
+  // Start loop
   animate()
 }
 
@@ -187,18 +160,6 @@ const animate = () => {
     }
     positionAttr.needsUpdate = true
     particlesMesh.rotation.z = currentX * 0.0003
-  }
-
-  // Animate 3D wireframe object
-  if (geomMesh && pointsMesh) {
-    geomMesh.rotation.x += 0.004
-    geomMesh.rotation.y += 0.006
-    pointsMesh.rotation.copy(geomMesh.rotation)
-
-    // Gentle responsive tilt
-    geomMesh.position.x = 160 + currentX * 0.25
-    geomMesh.position.y = 40 - currentY * 0.25
-    pointsMesh.position.copy(geomMesh.position)
   }
 
   // Camera parallax response

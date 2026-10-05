@@ -21,11 +21,21 @@ export default {
           light: '#f4f4f5',
           muted: '#a1a1aa',
           dark: '#18181b',
+        },
+        crimson: {
+          500: '#ef4444',
+          600: '#dc2626',
+          700: '#b91c1c',
+          800: '#991b1b',
+          900: '#7f1d1d',
+          dark: '#450a0a',
         }
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
         display: ['"Space Grotesk"', 'sans-serif'],
+        poster: ['"Bebas Neue"', 'sans-serif'],
+        script: ['"Caveat"', 'cursive'],
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       boxShadow: {
