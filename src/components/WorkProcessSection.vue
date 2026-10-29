@@ -17,18 +17,19 @@ import { personalData } from '../data/personal'
 const skillsList = [
   'Laravel',
   'PHP',
-  'JavaScript',
-  'TypeScript',
-  'Go',
   'MySQL',
-  'PostgreSQL',
+  'REST API',
+  'Digiflazz API',
+  'JavaScript',
   'Tailwind CSS',
   'Bootstrap',
   'jQuery',
-  'REST API',
-  'OWASP SAMM',
-  'Docker',
-  'Git'
+  'Next.js',
+  'Go (Golang)',
+  'Solidity',
+  'WordPress',
+  'Git',
+  'Postman',
 ]
 
 const steps = [
@@ -124,7 +125,7 @@ const steps = [
 
         <!-- Bottom verification note -->
         <div class="pt-6 mt-6 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-neutral-500">
-          <span>OWASP Top 10 • SAMM</span>
+          <span>HOTEL SYSTEMS & SAAS</span>
           <span class="text-neutral-400">YOGYAKARTA, ID</span>
         </div>
       </div>

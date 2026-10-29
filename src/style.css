@@ -58,6 +58,16 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  .text-stroke-crimson {
+    -webkit-text-stroke: 1.5px rgba(239, 68, 68, 0.85);
+    color: transparent;
+  }
+
+  .text-stroke-white {
+    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.7);
+    color: transparent;
+  }
 }
 
 /* Cyber subtle grid pattern background */

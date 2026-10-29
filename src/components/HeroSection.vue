@@ -67,9 +67,9 @@ onMounted(() => {
     <div class="hero-top-bar flex items-center justify-between border-b border-white/10 pb-4 mb-6 text-xs font-mono">
       <div class="flex items-center gap-2 text-neutral-400">
         <span class="w-1.5 h-1.5 rounded-full bg-crimson-600"></span>
-        <span class="text-white font-semibold tracking-wider">FULL-STACK DEVELOPER</span>
+        <span class="text-white font-semibold tracking-wider">FULL STACK WEB DEVELOPER</span>
         <span class="text-neutral-600">//</span>
-        <span class="hidden sm:inline text-neutral-400">BACKEND ARCHITECT & OWASP</span>
+        <span class="hidden sm:inline text-neutral-400">LARAVEL & HOTEL MANAGEMENT EXPERT</span>
       </div>
 
       <div class="flex items-center gap-2">
@@ -84,13 +84,13 @@ onMounted(() => {
     <!-- MAIN EDITORIAL HERO POSTER COMPOSITION -->
     <div class="relative flex-grow flex items-center justify-center my-auto min-h-[580px] sm:min-h-[640px]">
       
-      <!-- GIANT BACKDROP CONDENSED TYPOGRAPHY ("PORTFOLIO") -->
+      <!-- GIANT BACKDROP CONDENSED TYPOGRAPHY ("PORTFOLIO") - Layer 1: Solid behind user -->
       <div
         class="hero-backdrop-text absolute inset-x-0 top-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none select-none z-0 overflow-hidden"
         aria-hidden="true"
       >
         <span
-          class="font-poster text-[21vw] sm:text-[19vw] lg:text-[17.5vw] font-black uppercase tracking-tight text-crimson-700/80 leading-none text-center transform scale-y-110 drop-shadow-[0_0_35px_rgba(220,38,38,0.25)]"
+          class="font-poster text-[21vw] sm:text-[19vw] lg:text-[17.5vw] font-black uppercase tracking-tight text-crimson-600/90 leading-none text-center transform scale-y-110 drop-shadow-[0_0_35px_rgba(220,38,38,0.35)]"
         >
           PORTFOLIO
         </span>
@@ -100,16 +100,29 @@ onMounted(() => {
       <div class="hero-portrait absolute inset-0 z-10 flex items-end justify-center pointer-events-none">
         <div class="relative w-full max-w-md sm:max-w-lg lg:max-w-xl h-full flex items-end justify-center">
           <!-- Ambient backlight glow behind user -->
-          <div class="absolute bottom-16 w-3/4 h-3/4 bg-crimson-700/20 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="absolute bottom-16 w-3/4 h-3/4 bg-crimson-700/25 rounded-full blur-3xl pointer-events-none"></div>
 
-          <!-- User photo with smooth bottom gradient fade into black -->
+          <!-- User photo with radial and linear vignette gradient so edges blend completely into dark background -->
           <img
             src="/profile.jpg"
             alt="Gampang Rozaki - Full Stack Web Developer"
             class="relative z-10 w-auto h-[480px] sm:h-[560px] lg:h-[620px] object-contain object-bottom filter contrast-105 brightness-95 drop-shadow-[0_20px_40px_rgba(0,0,0,0.9)]"
-            style="mask-image: linear-gradient(to bottom, black 0%, black 72%, transparent 98%); -webkit-mask-image: linear-gradient(to bottom, black 0%, black 72%, transparent 98%);"
+            style="mask-image: radial-gradient(ellipse 85% 80% at 50% 45%, black 45%, rgba(0,0,0,0.85) 65%, transparent 95%), linear-gradient(to bottom, black 0%, black 72%, transparent 98%); -webkit-mask-image: radial-gradient(ellipse 85% 80% at 50% 45%, black 45%, rgba(0,0,0,0.85) 65%, transparent 95%), linear-gradient(to bottom, black 0%, black 72%, transparent 98%); mask-composite: intersect; -webkit-mask-composite: source-in;"
           />
         </div>
+      </div>
+
+      <!-- GIANT OUTLINE CONDENSED TYPOGRAPHY ("PORTFOLIO") - Layer 2: Outlined in front of user -->
+      <div
+        class="hero-backdrop-text absolute inset-x-0 top-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none select-none z-15 overflow-hidden"
+        style="z-index: 15;"
+        aria-hidden="true"
+      >
+        <span
+          class="font-poster text-[21vw] sm:text-[19vw] lg:text-[17.5vw] font-black uppercase tracking-tight text-stroke-crimson leading-none text-center transform scale-y-110"
+        >
+          PORTFOLIO
+        </span>
       </div>
 
       <!-- FOREGROUND CONTENT: 2-COLUMN OVERLAY (Left: Bio/Name | Right: Quote/Stats) -->
@@ -132,10 +145,10 @@ onMounted(() => {
           <div class="space-y-1 pt-1">
             <h2 class="text-xs sm:text-sm font-mono tracking-widest text-crimson-500 uppercase font-bold flex items-center gap-2">
               <span class="w-2 h-0.5 bg-crimson-500"></span>
-              FULL-STACK DEVELOPER & BACKEND ARCHITECT
+              FULL STACK WEB DEVELOPER
             </h2>
             <p class="text-xs sm:text-sm text-neutral-300 leading-relaxed font-sans max-w-lg">
-              Saya merancang dan membangun sistem web andal berbasis <strong class="text-white font-medium">Laravel, PHP, Go</strong>, dan <strong class="text-white font-medium">JavaScript</strong> dengan arsitektur bersih, integrasi API, dan standar keamanan ketat <strong class="text-white font-medium">OWASP SAMM</strong>.
+              Spesialis pengembangan dan pemeliharaan aplikasi web berbasis <strong class="text-white font-medium">Laravel & PHP</strong>, mencakup hotel management systems, arsitektur multi-tenant, dan integrasi third-party API.
             </p>
           </div>
 
@@ -231,10 +244,10 @@ onMounted(() => {
             <!-- Stat 3 -->
             <div class="space-y-0.5">
               <div class="font-poster text-4xl sm:text-5xl text-crimson-500 leading-none tracking-tight flex items-baseline lg:justify-end gap-1">
-                <span>100%</span>
+                <span>90%+</span>
               </div>
               <p class="text-[11px] font-mono tracking-widest uppercase text-neutral-400">
-                SECURE & PRODUCTION READY
+                PAYMENT SUCCESS RATE
               </p>
             </div>
           </div>
@@ -248,7 +261,7 @@ onMounted(() => {
     <!-- BOTTOM STATS / SCROLL INDICATOR STRIP -->
     <div class="border-t border-white/10 pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-neutral-500">
       <div class="flex items-center gap-4">
-        <span>TECH: LARAVEL • PHP • GO • VUE • TAILWIND</span>
+        <span>TECH: LARAVEL • PHP • GO • SOLIDITY • MYSQL • TAILWIND</span>
       </div>
       <div class="flex items-center gap-2 text-neutral-400">
         <span>SCROLL TO EXPLORE SELECTED WORK</span>

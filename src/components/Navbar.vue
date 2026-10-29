@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import { Menu, X, Terminal, Sparkles, Send } from 'lucide-vue-next'
+import { Menu, X, Terminal, Sparkles, Send, Download } from 'lucide-vue-next'
 import { personalData } from '../data/personal'
 
 const isScrolled = ref(false)
@@ -104,6 +104,17 @@ onUnmounted(() => {
           <span class="w-2 h-2 -ml-4 rounded-full bg-crimson-600"></span>
           <span class="text-[11px] font-medium tracking-wide">Available for Hire</span>
         </div>
+
+        <!-- Download CV Button -->
+        <a
+          :href="personalData.cvUrl"
+          download="CV_Gampang_Rozaki_2026.pdf"
+          target="_blank"
+          class="relative inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-mono font-semibold tracking-wider text-neutral-200 bg-white/5 hover:bg-white/10 border border-white/15 hover:border-white/30 rounded-lg transition-all duration-300 hover:text-white"
+        >
+          <Download class="w-3.5 h-3.5 text-crimson-500" />
+          <span>CV 2026</span>
+        </a>
 
         <!-- Contact CTA Button -->
         <a
