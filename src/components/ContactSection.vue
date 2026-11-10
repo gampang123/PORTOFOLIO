@@ -174,44 +174,6 @@ const handleSubmit = () => {
             </a>
           </div>
         </div>
-
-        <!-- RIGHT COLUMN: Sleek Code / Laptop / UI Mockup matching Reference 1 -->
-        <div class="lg:col-span-4 flex justify-center">
-          <div class="w-full max-w-sm rounded-2xl bg-black border border-white/15 p-4 shadow-2xl relative group overflow-hidden">
-            <!-- Terminal Header -->
-            <div class="flex items-center justify-between pb-3 border-b border-white/10 font-mono text-xs">
-              <div class="flex items-center gap-1.5">
-                <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
-              </div>
-              <span class="text-neutral-400 text-[11px]">rozaki@production:~$</span>
-            </div>
-
-            <!-- Code display simulating clean architecture -->
-            <div class="py-4 font-mono text-[11px] leading-relaxed text-neutral-300 space-y-1">
-              <p><span class="text-crimson-500">class</span> <span class="text-white font-bold">FullStackSystem</span> {</p>
-              <p class="pl-3 text-neutral-400">// Enterprise & Secure by Design</p>
-              <p class="pl-3"><span class="text-crimson-500">public</span> $developer = <span class="text-neutral-100">"Gampang Rozaki"</span>;</p>
-              <p class="pl-3"><span class="text-crimson-500">public</span> $backend = <span class="text-neutral-100">["Laravel", "PHP", "Go"]</span>;</p>
-              <p class="pl-3"><span class="text-crimson-500">public</span> $frontend = <span class="text-neutral-100">["Vue.js", "Tailwind"]</span>;</p>
-              <p class="pl-3"><span class="text-crimson-500">public</span> $standard = <span class="text-neutral-100">"OWASP Top 10"</span>;</p>
-              <p class="pl-3"><span class="text-crimson-500">public function</span> <span class="text-white">deploy</span>() {</p>
-              <p class="pl-6 text-crimson-400"><span class="text-neutral-400">return</span> Status::ONLINE_200;</p>
-              <p class="pl-3">}</p>
-              <p>}</p>
-            </div>
-
-            <div class="pt-3 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-neutral-500">
-              <span class="flex items-center gap-1.5 text-neutral-400">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                SYSTEM READY
-              </span>
-              <span>YOGYAKARTA • 2026</span>
-            </div>
-          </div>
-        </div>
-
       </div>
 
       <!-- Collapsible / Direct Send Message Form -->

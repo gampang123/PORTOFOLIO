@@ -6,7 +6,7 @@ import { personalData } from '../../data/personal'
 const props = defineProps({
   wordmark: {
     type: String,
-    default: 'rozaki'
+    default: 'Rozaki'
   },
   label: {
     type: String,
@@ -400,44 +400,6 @@ watch(
 
     <!-- Accessible Screen Reader text -->
     <span class="sr-only">{{ wordmark }}</span>
-
-    <!-- Sleek Minimalist Top Editorial Bar -->
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-4 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs tracking-wider text-neutral-400">
-      
-      <!-- Left: Identity & Year -->
-      <div class="flex items-center gap-3">
-        <a href="#hero" class="font-display font-bold text-white text-sm tracking-tight hover:text-crimson-400 transition-colors flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-crimson-600"></span>
-          <span>{{ label }}</span>
-        </a>
-        <span class="text-neutral-600">•</span>
-        <span class="text-[11px] text-neutral-400">{{ meta }}</span>
-      </div>
-
-      <!-- Center: Status & Live Interactive Hint -->
-      <div class="hidden md:flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-[11px] text-neutral-400">
-        <span class="relative flex h-2 w-2">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-crimson-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-crimson-500"></span>
-        </span>
-        <span class="text-neutral-400">SPRING FIELD ACTIVE // HOVER & CLICK WORDMARK</span>
-      </div>
-
-      <!-- Right: Magnetic Back to Top Button -->
-      <div>
-        <button
-          v-magnetic="{ strength: 0.35, innerStrength: 0.2 }"
-          type="button"
-          @click="scrollToTop"
-          class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-neutral-900/80 border border-white/15 text-neutral-300 hover:text-white hover:border-crimson-500/60 hover:bg-neutral-800 transition-colors cursor-pointer text-xs font-mono font-medium shadow-md active:scale-95"
-        >
-          <span>BACK TO TOP</span>
-          <div data-magnetic-inner>
-            <ArrowUp class="w-3.5 h-3.5 text-crimson-500" />
-          </div>
-        </button>
-      </div>
-    </div>
   </footer>
 </template>
 

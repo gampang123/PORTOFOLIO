@@ -112,21 +112,6 @@ onUnmounted(() => {
 
       <!-- Right Action: Status Pill & CTA Button -->
       <div class="hidden lg:flex items-center gap-4">
-        <!-- Availability indicator -->
-        <div
-          class="flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono transition-colors"
-          :class="[
-            isScrolled
-              ? 'bg-white/5 border border-white/15 text-neutral-300'
-              : 'bg-white/15 border border-white/25 text-white shadow-sm',
-          ]"
-        >
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-          <span class="w-2 h-2 -ml-4 rounded-full bg-emerald-400"></span>
-          <span class="text-[11px] font-medium tracking-wide">Available for Hire</span>
-        </div>
-
-        <!-- Download CV Button -->
         <a
           :href="personalData.cvUrl"
           download="CV_Gampang_Rozaki_2026.pdf"
