@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import Navbar from './components/Navbar.vue'
 import CloudShader from './components/ui/CloudShader.vue'
+import AirplaneFlyby from './components/AirplaneFlyby.vue'
 import CustomCursor from './components/CustomCursor.vue'
 import HeroSection from './components/HeroSection.vue'
 import ProjectsSection from './components/ProjectsSection.vue'
@@ -42,6 +43,9 @@ onMounted(async () => {
       <!-- Soft atmospheric gradient over the clouds for optimal reading contrast -->
       <div class="absolute inset-0 bg-gradient-to-b from-sky-950/15 via-sky-950/25 to-sky-950/40 pointer-events-none"></div>
     </div>
+
+    <!-- Airplane Flyby with Contrail Vapor Smoke Trail -->
+    <AirplaneFlyby />
 
     <!-- Floating Glassmorphic Header / Navbar -->
     <Navbar />
