@@ -81,7 +81,7 @@ onMounted(() => {
         >
           <!-- Node on Timeline -->
           <div
-            class="absolute -left-6 sm:-left-10 top-1.5 w-5 h-5 rounded-full bg-black border-2 border-crimson-600 flex items-center justify-center shadow-[0_0_10px_rgba(220,38,38,0.5)] group-hover:scale-125 group-hover:bg-crimson-600 transition-all duration-300"
+            class="absolute -left-6 sm:-left-10 top-1.5 w-5 h-5 rounded-full bg-[#0e244d] border-2 border-crimson-600 flex items-center justify-center shadow-[0_0_10px_rgba(220,38,38,0.5)] group-hover:scale-125 group-hover:bg-crimson-600 transition-all duration-300"
           >
             <span class="w-1.5 h-1.5 rounded-full bg-crimson-500 group-hover:bg-white transition-colors"></span>
           </div>

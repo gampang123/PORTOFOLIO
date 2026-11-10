@@ -72,7 +72,10 @@ const steps = [
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
       
       <!-- COLUMN 1: EDUCATION & SKILLS (4 Cols) -->
-      <div class="lg:col-span-4 flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-[#09090b] border border-white/10 shadow-2xl relative overflow-hidden group">
+      <div
+        v-tilt="{ max: 4, scale: 1.01 }"
+        class="lg:col-span-4 flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-[#0e244d]/80 border border-white/20 shadow-2xl relative overflow-hidden group will-change-transform backdrop-blur-xl"
+      >
         <!-- Top subtle red accent glow -->
         <div class="absolute -top-16 -left-16 w-36 h-36 bg-crimson-600/10 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -94,7 +97,7 @@ const steps = [
 
             <div class="space-y-4 border-l border-white/10 pl-4 ml-1">
               <div v-for="(edu, idx) in personalData.education" :key="idx" class="relative group/item">
-                <span class="absolute -left-[21px] top-1.5 w-2 h-2 rounded-full bg-crimson-600 ring-4 ring-[#09090b]"></span>
+                <span class="absolute -left-[21px] top-1.5 w-2 h-2 rounded-full bg-crimson-600 ring-4 ring-[#0e244d]"></span>
                 <div class="flex justify-between items-baseline">
                   <h4 class="font-bold text-white text-sm tracking-tight">{{ edu.institution }}</h4>
                   <span class="text-[10px] font-mono text-crimson-500/80">{{ edu.period }}</span>
@@ -115,7 +118,8 @@ const steps = [
               <span
                 v-for="(skill, sIdx) in skillsList"
                 :key="sIdx"
-                class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] border border-white/10 text-neutral-300 hover:border-crimson-500/50 hover:text-white hover:bg-crimson-600/10 transition-all cursor-default"
+                v-magnetic="{ strength: 0.2 }"
+                class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] border border-white/10 text-neutral-300 hover:border-crimson-500/50 hover:text-white hover:bg-crimson-600/10 transition-colors cursor-default will-change-transform inline-block"
               >
                 {{ skill }}
               </span>
@@ -131,7 +135,10 @@ const steps = [
       </div>
 
       <!-- COLUMN 2: WORK PROCESS (5 Cols) -->
-      <div class="lg:col-span-5 flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-[#09090b] border border-white/10 shadow-2xl relative overflow-hidden">
+      <div
+        v-tilt="{ max: 4, scale: 1.01 }"
+        class="lg:col-span-5 flex flex-col justify-between p-6 sm:p-7 rounded-2xl bg-[#0e244d]/80 border border-white/20 shadow-2xl relative overflow-hidden will-change-transform backdrop-blur-xl"
+      >
         <div>
           <!-- Section Title -->
           <div class="flex items-center gap-2 mb-6">
@@ -178,8 +185,11 @@ const steps = [
         </div>
       </div>
 
-      <!-- COLUMN 3: PHILOSOPHY QUOTE CARD (3 Cols - Crimson / Luxury Dark) -->
-      <div class="lg:col-span-3 flex flex-col justify-between p-7 rounded-2xl bg-gradient-to-b from-[#2a0808] via-[#1a0404] to-[#0d0101] border border-crimson-900/60 shadow-2xl relative overflow-hidden group">
+      <!-- COLUMN 3: PHILOSOPHY QUOTE CARD (3 Cols - Sky Luxury Dark) -->
+      <div
+        v-tilt="{ max: 4, scale: 1.01 }"
+        class="lg:col-span-3 flex flex-col justify-between p-7 rounded-2xl bg-gradient-to-b from-[#13326b] via-[#0d234d] to-[#081736] border border-sky-400/30 shadow-2xl relative overflow-hidden group will-change-transform backdrop-blur-xl"
+      >
         <!-- Crimson ambient highlights -->
         <div class="absolute top-0 right-0 w-44 h-44 bg-crimson-600/20 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute bottom-0 left-0 w-32 h-32 bg-crimson-800/20 rounded-full blur-2xl pointer-events-none"></div>
@@ -212,11 +222,12 @@ const steps = [
             LET'S CREATE SOMETHING GREAT TOGETHER.
           </p>
           <a
+            v-magnetic="{ strength: 0.35, innerStrength: 0.2 }"
             href="#contact"
-            class="inline-flex items-center gap-2 text-xs font-mono text-white bg-crimson-600 hover:bg-crimson-500 px-4 py-2.5 rounded-lg font-bold tracking-wider transition-all shadow-[0_0_15px_rgba(220,38,38,0.4)] group/btn"
+            class="inline-flex items-center gap-2 text-xs font-mono text-white bg-crimson-600 hover:bg-crimson-500 px-4 py-2.5 rounded-lg font-bold tracking-wider transition-colors shadow-[0_0_15px_rgba(220,38,38,0.4)] group/btn cursor-pointer will-change-transform"
           >
             <span>START A PROJECT</span>
-            <ArrowRight class="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
+            <ArrowRight data-magnetic-inner class="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
           </a>
         </div>
       </div>

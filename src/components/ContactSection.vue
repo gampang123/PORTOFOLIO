@@ -62,8 +62,8 @@ const handleSubmit = () => {
 
 <template>
   <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative">
-    <!-- Main "LET'S WORK TOGETHER" Banner matching Reference 1 bottom section -->
-    <div class="rounded-3xl bg-[#09090b] border border-white/10 p-8 sm:p-12 shadow-2xl relative overflow-hidden">
+    <!-- Main "LET'S WORK TOGETHER" Banner matching Sky Theme -->
+    <div class="rounded-3xl bg-[#0e244d]/85 border border-white/20 p-8 sm:p-12 shadow-2xl relative overflow-hidden backdrop-blur-xl">
       <!-- Ambient red glow corner -->
       <div class="absolute -bottom-24 -left-24 w-80 h-80 bg-crimson-600/10 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -89,11 +89,12 @@ const handleSubmit = () => {
 
           <div>
             <button
+              v-magnetic="{ strength: 0.35, innerStrength: 0.2 }"
               @click="showForm = !showForm"
-              class="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-crimson-600 hover:bg-crimson-500 text-white font-mono text-xs font-bold tracking-wider transition-all shadow-[0_0_20px_rgba(220,38,38,0.4)] group"
+              class="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-crimson-600 hover:bg-crimson-500 text-white font-mono text-xs font-bold tracking-wider transition-colors shadow-[0_0_20px_rgba(220,38,38,0.4)] group cursor-pointer will-change-transform"
             >
               <span>{{ showForm ? 'TUTUP FORM PESAN' : 'KIRIM PESAN LANGSUNG' }}</span>
-              <ArrowRight class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight data-magnetic-inner class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
         </div>

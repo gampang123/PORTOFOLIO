@@ -56,7 +56,7 @@ onUnmounted(() => {
     :class="[
       isScrolled
         ? 'py-3.5 bg-cyber-bg/85 backdrop-blur-xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.5)]'
-        : 'py-6 bg-transparent',
+        : 'py-4 bg-[#3876ba]/20 backdrop-blur-md shadow-sm',
     ]"
   >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -66,21 +66,33 @@ onUnmounted(() => {
         class="flex items-center gap-2 group font-mono text-lg tracking-wider"
       >
         <div
-          class="w-9 h-9 rounded-lg bg-cyber-surfaceLight border border-white/20 flex items-center justify-center text-white shadow-[0_0_15px_rgba(255,255,255,0.15)] group-hover:border-white group-hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all duration-300"
+          class="w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-300"
+          :class="[
+            isScrolled
+              ? 'bg-cyber-surfaceLight border border-white/20 text-white shadow-[0_0_15px_rgba(255,255,255,0.15)] group-hover:border-white'
+              : 'bg-white/20 border border-white/30 text-white shadow-sm group-hover:bg-white/30',
+          ]"
         >
           <span class="font-bold text-base">&lt;/&gt;</span>
         </div>
         <div class="flex items-baseline">
-          <span class="font-display font-bold text-white text-lg tracking-tight group-hover:text-neutral-300 transition-colors">
+          <span class="font-display font-bold text-lg tracking-tight text-white transition-colors group-hover:text-amber-300">
             {{ personalData.nickName }}
           </span>
-          <span class="text-white font-bold text-xl leading-none">.</span>
-          <span class="text-xs font-mono text-neutral-400 ml-1 hidden sm:inline-block">dev</span>
+          <span class="font-bold text-xl leading-none text-amber-300">.</span>
+          <span class="text-xs font-mono ml-1 hidden sm:inline-block text-white/70">dev</span>
         </div>
       </a>
 
       <!-- Desktop Navigation Links -->
-      <nav class="hidden md:flex items-center gap-1 bg-cyber-surface/60 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/10 shadow-inner">
+      <nav
+        class="hidden md:flex items-center gap-1 backdrop-blur-md px-4 py-1.5 rounded-full border transition-all duration-300"
+        :class="[
+          isScrolled
+            ? 'bg-cyber-surface/60 border-white/10 shadow-inner'
+            : 'bg-white/15 border-white/25 shadow-sm',
+        ]"
+      >
         <a
           v-for="link in navLinks"
           :key="link.name"
@@ -88,8 +100,10 @@ onUnmounted(() => {
           class="relative px-3.5 py-1.5 text-xs uppercase tracking-widest font-mono font-medium transition-all duration-200 rounded-full"
           :class="[
             activeSection === link.href.replace('#', '')
-              ? 'text-white bg-crimson-600/30 shadow-[0_0_12px_rgba(220,38,38,0.3)] font-semibold border border-crimson-500/50'
-              : 'text-neutral-400 hover:text-white hover:bg-white/5',
+              ? 'text-white bg-crimson-600 shadow-[0_0_12px_rgba(220,38,38,0.35)] font-semibold border border-crimson-500'
+              : isScrolled
+                ? 'text-neutral-400 hover:text-white hover:bg-white/5'
+                : 'text-white/80 hover:text-white hover:bg-white/10',
           ]"
         >
           {{ link.name }}
@@ -99,9 +113,16 @@ onUnmounted(() => {
       <!-- Right Action: Status Pill & CTA Button -->
       <div class="hidden lg:flex items-center gap-4">
         <!-- Availability indicator -->
-        <div class="flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/15 text-xs font-mono text-neutral-300">
-          <span class="w-2 h-2 rounded-full bg-crimson-600 animate-ping"></span>
-          <span class="w-2 h-2 -ml-4 rounded-full bg-crimson-600"></span>
+        <div
+          class="flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono transition-colors"
+          :class="[
+            isScrolled
+              ? 'bg-white/5 border border-white/15 text-neutral-300'
+              : 'bg-white/15 border border-white/25 text-white shadow-sm',
+          ]"
+        >
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span class="w-2 h-2 -ml-4 rounded-full bg-emerald-400"></span>
           <span class="text-[11px] font-medium tracking-wide">Available for Hire</span>
         </div>
 
@@ -110,9 +131,14 @@ onUnmounted(() => {
           :href="personalData.cvUrl"
           download="CV_Gampang_Rozaki_2026.pdf"
           target="_blank"
-          class="relative inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-mono font-semibold tracking-wider text-neutral-200 bg-white/5 hover:bg-white/10 border border-white/15 hover:border-white/30 rounded-lg transition-all duration-300 hover:text-white"
+          class="relative inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-mono font-semibold tracking-wider rounded-lg transition-all duration-300"
+          :class="[
+            isScrolled
+              ? 'text-neutral-200 bg-white/5 hover:bg-white/10 border border-white/15 hover:border-white/30 hover:text-white'
+              : 'text-white bg-white/15 hover:bg-white/25 border border-white/25 shadow-sm',
+          ]"
         >
-          <Download class="w-3.5 h-3.5 text-crimson-500" />
+          <Download class="w-3.5 h-3.5 text-amber-300" />
           <span>CV 2026</span>
         </a>
 
@@ -130,14 +156,21 @@ onUnmounted(() => {
       <div class="flex items-center md:hidden gap-3">
         <a
           href="#contact"
-          class="text-xs font-mono font-semibold px-3 py-1.5 bg-white/10 border border-white/30 text-white rounded-md"
+          class="text-xs font-mono font-semibold px-3 py-1.5 text-white bg-crimson-600 rounded-md"
         >
           Contact
         </a>
         <button
           @click="toggleMobileMenu"
-          class="p-2 rounded-lg bg-cyber-surface border border-white/10 text-neutral-300 hover:text-white focus:outline-none"
+          class="p-2 rounded-lg transition-colors focus:outline-none"
+          :class="[
+            isScrolled
+              ? 'bg-cyber-surface border border-white/10 text-neutral-300 hover:text-white'
+              : 'bg-white/20 border border-white/25 text-white shadow-sm',
+          ]"
           aria-label="Toggle Navigation Menu"
+        >
+        >
         >
           <X v-if="isMobileMenuOpen" class="w-6 h-6 text-white" />
           <Menu v-else class="w-6 h-6" />

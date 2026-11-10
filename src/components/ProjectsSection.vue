@@ -52,28 +52,27 @@ const setCategory = (cat) => {
           </h2>
         </div>
 
-        <div class="hidden sm:flex flex-grow h-px bg-white/10 mx-6"></div>
-
         <div class="flex items-center gap-2">
           <a
+            v-magnetic="{ strength: 0.3, innerStrength: 0.2 }"
             href="https://github.com"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-xs font-mono tracking-widest text-neutral-400 hover:text-crimson-500 uppercase flex items-center gap-2 transition-colors"
+            class="text-xs font-mono tracking-widest text-white/90 hover:text-white uppercase flex items-center gap-2 transition-all px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 shadow-sm"
           >
             <span>VIEW ALL PROJECTS</span>
-            <ArrowUpRight class="w-4 h-4 text-crimson-500" />
+            <ArrowUpRight data-magnetic-inner class="w-4 h-4 text-amber-300" />
           </a>
         </div>
       </div>
 
       <!-- Category Filter Tabs -->
       <div class="flex items-center justify-between flex-wrap gap-4 pt-2">
-        <p class="text-neutral-400 text-xs sm:text-sm font-sans max-w-xl">
+        <p class="text-white/80 text-xs sm:text-sm font-sans max-w-xl">
           Sistem web enterprise, platform kasir SaaS multi-tenant, dan portal digital dengan arsitektur aman.
         </p>
 
-        <div class="flex flex-wrap gap-1.5 p-1 rounded-xl bg-neutral-900/80 border border-white/10">
+        <div class="flex flex-wrap gap-1.5 p-1 rounded-xl bg-[#0e244d]/70 backdrop-blur-md border border-white/20">
           <button
             v-for="category in projectCategories"
             :key="category"
@@ -91,16 +90,17 @@ const setCategory = (cat) => {
       </div>
     </div>
 
-    <!-- Projects Grid (Fast, instantaneous render with smooth CSS hover) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+    <!-- Projects Grid (Smooth 3D interactive tilt cards with GSAP) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 [perspective:1200px]">
       <div
         v-for="(project, pIdx) in filteredProjects"
         :key="project.id"
-        class="group rounded-2xl border border-white/10 bg-[#0d0d10] hover:border-crimson-500/50 backdrop-blur-xl flex flex-col justify-between overflow-hidden shadow-2xl transition-all duration-300 hover:-translate-y-1"
+        v-tilt="{ max: 5, perspective: 1000, scale: 1.015 }"
+        class="group rounded-2xl border border-white/20 bg-[#0e244d]/75 hover:border-amber-400/60 backdrop-blur-xl flex flex-col justify-between overflow-hidden shadow-2xl transition-colors duration-300 will-change-transform"
       >
         <!-- Project Preview Graphic Container (Clickable to open modal) -->
         <div
-          class="relative w-full h-52 overflow-hidden border-b border-white/10 cursor-pointer bg-black"
+          class="relative w-full h-52 overflow-hidden cursor-pointer bg-black/40"
           @click="openProjectModal(project)"
         >
           <!-- Rich Project UI Mockup Display Component -->

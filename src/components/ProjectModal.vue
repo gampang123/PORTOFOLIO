@@ -73,10 +73,10 @@ onUnmounted(() => {
         @click.self="emit('close')"
       >
         <div
-          class="relative w-full max-w-4xl max-h-[92vh] flex flex-col rounded-2xl border border-white/20 shadow-[0_0_60px_rgba(255,255,255,0.12)] bg-[#0d0d10] text-left overflow-hidden my-auto"
+          class="relative w-full max-w-4xl max-h-[92vh] flex flex-col rounded-2xl border border-white/25 shadow-[0_0_60px_rgba(0,0,0,0.5)] bg-[#0c1c3d]/95 backdrop-blur-2xl text-left overflow-hidden my-auto"
         >
           <!-- Modal Top Bar -->
-          <div class="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#121216]/90">
+          <div class="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#09152e]/90">
             <div class="flex items-center gap-2.5">
               <span class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/10 border border-white/15 text-white">
                 {{ project.category }}

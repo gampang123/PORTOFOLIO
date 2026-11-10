@@ -1,5 +1,12 @@
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
+import { magneticDirective, tiltDirective } from './directives/motionDirectives'
 
-createApp(App).mount('#app')
+const app = createApp(App)
+
+app.directive('magnetic', magneticDirective)
+app.directive('tilt', tiltDirective)
+
+app.mount('#app')
+
