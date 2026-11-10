@@ -23,6 +23,10 @@ import { personalData } from '../data/personal'
 
 const heroRef = ref(null)
 
+const triggerAirplane = () => {
+  window.dispatchEvent(new CustomEvent('launch-airplane'))
+}
+
 onMounted(() => {
   const ctx = gsap.context(() => {
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
@@ -218,25 +222,34 @@ onMounted(() => {
               <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
               <span class="font-semibold tracking-wider">CREATIVE DEV PORTAL</span>
             </div>
-            <span class="text-white/60 text-[10px]">VER 2026.11</span>
+            <button
+              @click.stop="triggerAirplane"
+              class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/20 hover:bg-white/35 border border-white/30 text-white text-[10px] font-mono cursor-pointer transition-all hover:scale-105 active:scale-95 shadow-sm"
+              title="Terbangkan Pesawat"
+            >
+              <span>✈️ FLY JET</span>
+            </button>
           </div>
 
-          <!-- Inner Image Frame with Atmospheric Vignette -->
-          <div class="relative w-full h-[400px] sm:h-[450px] rounded-2xl overflow-hidden bg-gradient-to-b from-sky-400/20 via-transparent to-black/30 flex items-end justify-center">
+          <!-- Inner Image Frame with Soft Cloud Aura & Radial Feather Blur -->
+          <div class="relative w-full h-[400px] sm:h-[450px] rounded-2xl overflow-hidden bg-gradient-to-b from-sky-400/25 via-sky-300/10 to-[#0e244d]/60 flex items-end justify-center">
             
-            <!-- Soft ambient backlight inside frame -->
-            <div class="absolute inset-0 bg-gradient-to-t from-[#0e244d]/60 via-transparent to-transparent pointer-events-none z-10"></div>
+            <!-- Soft glowing cloud aura behind portrait -->
+            <div class="absolute inset-x-8 top-10 bottom-16 rounded-full bg-sky-200/30 blur-3xl pointer-events-none"></div>
 
-            <!-- Portrait Photo with Organic Depth Vignette -->
+            <!-- Portrait Photo with Dreamy Radial Blur Feather (Zero Boxy Edges!) -->
             <img
               src="/pang.png"
               alt="Gampang Rozaki"
-              class="relative z-0 w-full h-full object-contain object-bottom filter contrast-105 brightness-100 drop-shadow-[0_15px_30px_rgba(0,0,0,0.35)] transition-transform duration-500 group-hover:scale-105"
-              style="mask-image: linear-gradient(to bottom, black 0%, black 82%, transparent 98%); -webkit-mask-image: linear-gradient(to bottom, black 0%, black 82%, transparent 98%);"
+              class="relative z-0 w-full h-full object-contain object-bottom filter contrast-105 brightness-100 drop-shadow-[0_20px_45px_rgba(10,35,75,0.4)] transition-transform duration-500 group-hover:scale-105"
+              style="mask-image: radial-gradient(ellipse 50% 55% at 50% 45%, black 25%, rgba(0,0,0,0.92) 48%, rgba(0,0,0,0.3) 68%, transparent 84%); -webkit-mask-image: radial-gradient(ellipse 50% 55% at 50% 45%, black 25%, rgba(0,0,0,0.92) 48%, rgba(0,0,0,0.3) 68%, transparent 84%);"
             />
 
+            <!-- Ambient depth gradient at bottom of frame -->
+            <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#09152e]/80 via-[#09152e]/30 to-transparent pointer-events-none z-10"></div>
+
             <!-- Nameplate Pill inside frame -->
-            <div class="absolute bottom-3 inset-x-4 z-20 p-2.5 rounded-xl bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-between text-xs font-mono text-white">
+            <div class="absolute bottom-3 inset-x-4 z-20 p-2.5 rounded-xl bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-between text-xs font-mono text-white shadow-lg">
               <div>
                 <p class="font-bold text-white tracking-wide">GAMPANG ROZAKI</p>
                 <p class="text-[10px] text-amber-300">PHP & Laravel Specialist</p>

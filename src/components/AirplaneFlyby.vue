@@ -132,6 +132,13 @@ onMounted(() => {
   // First launch shortly after mount
   scheduleNextFlight(3500)
 
+  // Allow launching on demand via custom event
+  const onLaunchDemand = () => {
+    if (timeoutId) clearTimeout(timeoutId)
+    launchPlane()
+  }
+  window.addEventListener('launch-airplane', onLaunchDemand)
+
   let lastTime = performance.now()
 
   const animate = (currentTime) => {
