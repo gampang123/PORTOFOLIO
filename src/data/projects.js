@@ -3,7 +3,7 @@ export const projectCategories = ["All", "Full Stack", "Backend & SaaS", "Web & 
 export const projectsData = [
   {
     id: "royal-dparagon-hotel-system",
-    title: "PT Royal Dparagon Land - Hotel System",
+    title: "Hotel Management System and Back Office",
     category: "Full Stack",
     shortDescription: "Sistem manajemen hotel terpadu mencakup modul finance, teknikal, inventaris laundry, customer, dan integrasi API Digiflazz token listrik.",
     longDescription: "Pengembangan dan pemeliharaan web internal hotel management system. Berhasil mengintegrasikan API Digiflazz untuk alur pembayaran token listrik prabayar dengan 90% transaction success rate, serta membangun modul laundry inventory dengan rekonsiliasi stock opname fisik.",

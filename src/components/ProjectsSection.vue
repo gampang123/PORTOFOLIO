@@ -102,14 +102,6 @@ const setCategory = (cat) => {
       />
     </div>
 
-    <!-- Interactive Navigation Hint -->
-    <div class="mt-12 text-center">
-      <p class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 border border-white/25 backdrop-blur-md text-xs font-mono tracking-wider text-white/90 shadow-sm">
-        <Sparkles class="w-3.5 h-3.5 text-amber-300" />
-        <span>Arahkan kursor untuk memiringkan kaca · Klik folder untuk membuka arsip · Klik lembar untuk detail arsitektur</span>
-      </p>
-    </div>
-
     <!-- Project Detail Modal -->
     <ProjectModal
       :is-open="isModalOpen"
