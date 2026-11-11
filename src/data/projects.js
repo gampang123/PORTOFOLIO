@@ -1,4 +1,4 @@
-export const projectCategories = ["All", "Full Stack", "Backend & SaaS", "Web & Platform"];
+export const projectCategories = ["All", "Full Stack", "Backend Developer", "Web & Platform", "Frontend Developer"];
 
 export const projectsData = [
   {
@@ -12,7 +12,7 @@ export const projectsData = [
     image: "",
     previewType: "hotel",
     mockupUrl: "https://erp.dparagon.id/hotel/management",
-    systemStatus: "Production Active",
+    systemStatus: "",
     demoUrl: "https://github.com",
     githubUrl: "https://github.com",
     metrics: [
@@ -44,7 +44,7 @@ export const projectsData = [
     image: "",
     previewType: "portal",
     mockupUrl: "https://1batangtoru.id/collaboration",
-    systemStatus: "Delivered End-to-End",
+    systemStatus: "",
     demoUrl: "https://github.com",
     githubUrl: "https://github.com",
     metrics: [
@@ -68,7 +68,7 @@ export const projectsData = [
   {
     id: "saas-pos-system",
     title: "Multi-Merchant SaaS Point of Sale",
-    category: "Backend & SaaS",
+    category: "Full Stack",
     shortDescription: "Sistem kasir (POS) berbasis Cloud SaaS multi-tenant yang melayani banyak merchant dalam satu platform terpusat.",
     longDescription: "Mengembangkan platform POS SaaS multi-merchant bersama Javas Technology mulai dari frontend, backend, hingga tahap deployment. Memungkinkan setiap merchant mengelola transaksi kasir, katalog produk, dan laporan penjualan secara mandiri.",
     tags: ["Laravel", "PHP", "MySQL", "Bootstrap", "jQuery"],
@@ -76,7 +76,7 @@ export const projectsData = [
     image: "",
     previewType: "pos",
     mockupUrl: "https://pos-saas.javastech.com/terminal",
-    systemStatus: "Multi-Merchant Live",
+    systemStatus: "",
     demoUrl: "https://github.com",
     githubUrl: "https://github.com",
     metrics: [
@@ -108,7 +108,7 @@ export const projectsData = [
     image: "",
     previewType: "rental",
     mockupUrl: "https://gadesain.com/invitation/preview",
-    systemStatus: "Live Product",
+    systemStatus: "",
     demoUrl: "https://github.com",
     githubUrl: "https://github.com",
     metrics: [
@@ -139,7 +139,7 @@ export const projectsData = [
     image: "",
     previewType: "event",
     mockupUrl: "https://cop-unfccc.org/events",
-    systemStatus: "Global Project",
+    systemStatus: "",
     demoUrl: "https://github.com",
     githubUrl: "https://github.com",
     metrics: [
@@ -162,7 +162,7 @@ export const projectsData = [
   {
     id: "lending-pool-smart-contract",
     title: "Lending Pool Protocol & Go SDK",
-    category: "Backend & SaaS",
+    category: "Backend Developer",
     shortDescription: "Smart contract decentralized lending pool di Solidity dengan Go-based SDK dan template kontrak modular.",
     longDescription: "Mengembangkan protokol lending pool terdesentralisasi menggunakan bahasa Solidity, memungkinkan pengguna menyetor aset dan meminjam dengan agunan (collateral). Membangun SDK berbasis bahasa Go dengan template kontrak siap pakai.",
     tags: ["Solidity", "Go", "Smart Contract", "REST API"],
@@ -170,7 +170,7 @@ export const projectsData = [
     image: "",
     previewType: "defi",
     mockupUrl: "https://lending-protocol.network/contracts",
-    systemStatus: "Tested Protocol",
+    systemStatus: "",
     demoUrl: "https://github.com",
     githubUrl: "https://github.com",
     metrics: [
@@ -193,7 +193,7 @@ export const projectsData = [
   {
     id: "karsa-prawira-portfolio",
     title: "CV Karsa Prawira Company Portal",
-    category: "Web & Platform",
+    category: "Full Stack",
     shortDescription: "Website portfolio perusahaan dengan landing page responsif, dashboard pengguna, dan sistem manajemen konten (CMS).",
     longDescription: "Dibangun saat magang di CV Karsa Prawira. Mengembangkan website portfolio perusahaan yang mencakup landing page, sistem otorisasi pengguna (RBAC), content management untuk pembaruan website berkala, serta user dashboard.",
     tags: ["Laravel", "PHP", "MySQL", "Tailwind CSS", "JavaScript"],
@@ -201,7 +201,7 @@ export const projectsData = [
     image: "",
     previewType: "workflow",
     mockupUrl: "https://karsaprawira.co.id/dashboard",
-    systemStatus: "Completed Internship",
+    systemStatus: "",
     demoUrl: "https://github.com",
     githubUrl: "https://github.com",
     metrics: [
@@ -224,7 +224,7 @@ export const projectsData = [
   {
     id: "iconhub-booking-platform",
     title: "Icon Hub - Meeting Room Booking",
-    category: "Web & Platform",
+    category: "Frontend Developer",
     shortDescription: "Frontend dan antarmuka pemesanan ruang rapat untuk browsing ruangan, cek ketersediaan, dan reservasi.",
     longDescription: "Membangun antarmuka frontend untuk platform pemesanan ruang meeting Icon Hub beserta landing page interaktif. Merancang alur pemesanan yang mulus mulai dari melihat katalog ruangan, cek jadwal ketersediaan, hingga konfirmasi reservasi.",
     tags: ["JavaScript", "HTML5", "CSS3", "Bootstrap", "REST API"],
@@ -232,7 +232,7 @@ export const projectsData = [
     image: "",
     previewType: "portal",
     mockupUrl: "https://iconhub.co.id/meeting-rooms",
-    systemStatus: "Frontend Live",
+    systemStatus: "",
     demoUrl: "https://github.com",
     githubUrl: "https://github.com",
     metrics: [

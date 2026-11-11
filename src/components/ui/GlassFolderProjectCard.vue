@@ -343,15 +343,9 @@ const triggerModal = (e) => {
               <div class="flex items-center gap-2">
                 <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
                 <span class="text-[10px] font-mono tracking-wider uppercase font-bold text-emerald-700">
-                  {{ project.systemStatus || 'PRODUCTION READY' }}
+                  {{ project.systemStatus || '' }}
                 </span>
               </div>
-
-              <!-- Folder Open Indicator / Flip Tag -->
-              <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-600 font-semibold flex items-center gap-1 transition-all group-hover:bg-slate-200">
-                <span>{{ isOpen ? 'CLOSE' : 'OPEN DOSSIER' }}</span>
-                <ChevronUp class="w-3 h-3 transition-transform duration-300" :class="isOpen ? 'rotate-180' : ''" />
-              </span>
             </div>
 
             <!-- Center: Project Title & Serial Number -->
