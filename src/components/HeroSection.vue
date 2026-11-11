@@ -31,18 +31,13 @@ onMounted(() => {
   const ctx = gsap.context(() => {
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
 
-    tl.from('.hero-badge', {
+    tl.from('.hero-title-part', {
       opacity: 0,
-      y: -20,
-      duration: 0.6,
+      y: 25,
+      stagger: 0.1,
+      duration: 0.8,
       delay: 0.1
     })
-      .from('.hero-title-part', {
-        opacity: 0,
-        y: 25,
-        stagger: 0.1,
-        duration: 0.8
-      }, '-=0.3')
       .from('.hero-desc', {
         opacity: 0,
         y: 20,
@@ -55,18 +50,11 @@ onMounted(() => {
       }, '-=0.5')
       .from('.hero-3d-card', {
         opacity: 0,
-        scale: 0.9,
+        scale: 0.92,
         y: 35,
         duration: 1.1,
         ease: 'power3.out'
-      }, '-=0.7')
-      .from('.hero-satellite-badge', {
-        opacity: 0,
-        scale: 0.75,
-        stagger: 0.15,
-        duration: 0.6,
-        ease: 'back.out(1.7)'
-      }, '-=0.5')
+      }, '-=0.6')
   }, heroRef.value)
 
   return () => ctx.revert()
@@ -200,26 +188,13 @@ onMounted(() => {
         <!-- 3D Interactive Tilt Glass Portal Card -->
         <div
           v-tilt="{ max: 8, perspective: 1000, scale: 1.02 }"
-          class="hero-3d-card group relative w-full max-w-sm sm:max-w-md rounded-3xl bg-gradient-to-b from-white/25 via-white/15 to-white/5 border border-white/30 backdrop-blur-2xl shadow-[0_25px_60px_rgba(10,35,75,0.35)] p-5 select-none will-change-transform animate-float-gentle"
+          class="hero-3d-card group relative w-full max-w-sm sm:max-w-md rounded-3xl bg-gradient-to-b from-white/30 via-white/15 to-white/10 border border-white/30 backdrop-blur-2xl shadow-[0_25px_60px_rgba(10,35,75,0.35)] p-4 select-none will-change-transform animate-float-gentle"
         >
           <!-- Specular Light Reflection at Top of Glass -->
           <div class="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-white/35 to-transparent rounded-t-3xl pointer-events-none"></div>
 
-          <!-- Top Status Bar of Portal -->
-          <div class="flex items-center justify-between pb-3.5 mb-2 border-b border-white/15 font-mono text-[11px] text-white/90">
-            <div class="flex items-center gap-2">
-              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            </div>
-            <button
-              @click.stop="triggerAirplane"
-              class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/20 hover:bg-white/35 border border-white/30 text-white text-[10px] font-mono cursor-pointer transition-all hover:scale-105 active:scale-95 shadow-sm"
-              title="Terbangkan Pesawat"
-            >
-            </button>
-          </div>
-
           <!-- Inner Image Frame with Soft Cloud Aura & Sky Image -->
-          <div class="relative w-full h-[400px] sm:h-[450px] rounded-2xl overflow-hidden bg-gradient-to-b from-sky-400/25 via-sky-300/10 to-[#0e244d]/60 flex items-end justify-center">
+          <div class="relative w-full h-[400px] sm:h-[460px] rounded-2xl overflow-hidden bg-gradient-to-b from-sky-400/25 via-sky-300/10 to-[#0e244d]/60 flex items-end justify-center">
             
             <!-- Soft glowing cloud aura behind portrait -->
             <div class="absolute inset-x-8 top-10 bottom-16 rounded-full bg-sky-200/30 blur-3xl pointer-events-none"></div>
@@ -232,16 +207,16 @@ onMounted(() => {
             />
 
             <!-- Ambient depth gradient at bottom of frame -->
-            <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#09152e]/90 via-[#09152e]/40 to-transparent pointer-events-none z-10"></div>
+            <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#0e244d]/85 via-[#0e244d]/30 to-transparent pointer-events-none z-10"></div>
 
             <!-- Nameplate Pill inside frame -->
-            <div class="absolute bottom-3 inset-x-4 z-20 p-2.5 rounded-xl bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-between text-xs font-mono text-white shadow-lg">
+            <div class="absolute bottom-3.5 inset-x-3.5 z-20 p-3 rounded-xl bg-white/20 backdrop-blur-xl border border-white/30 flex items-center justify-between text-xs font-mono text-white shadow-lg">
               <div>
                 <p class="font-bold text-white tracking-wide">GAMPANG ROZAKI</p>
-                <p class="text-[10px] text-amber-300">Full Stack Web Developer</p>
+                <p class="text-[10px] text-amber-300 font-semibold">Full Stack Web Developer</p>
               </div>
-              <div class="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center">
-                <Code2 class="w-3.5 h-3.5 text-white" />
+              <div class="w-8 h-8 rounded-lg bg-white/15 border border-white/25 flex items-center justify-center">
+                <Code2 class="w-4 h-4 text-white" />
               </div>
             </div>
           </div>

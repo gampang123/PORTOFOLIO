@@ -102,14 +102,14 @@ const steps = [
                   <h4 class="font-bold text-white text-sm tracking-tight">{{ edu.institution }}</h4>
                   <span class="text-[10px] font-mono text-crimson-500/80">{{ edu.period }}</span>
                 </div>
-                <p class="text-xs text-neutral-400 mt-0.5">{{ edu.major }}</p>
+                <p class="text-xs text-white/80 mt-0.5">{{ edu.major }}</p>
               </div>
             </div>
           </div>
 
           <!-- Skills Sub-block -->
           <div>
-            <span class="text-[11px] font-mono tracking-widest text-crimson-500 uppercase font-bold flex items-center gap-2 mb-3">
+            <span class="text-[11px] font-mono tracking-widest text-amber-300 uppercase font-bold flex items-center gap-2 mb-3">
               <Sparkles class="w-3.5 h-3.5" />
               CORE STACK & TOOLS
             </span>
@@ -119,7 +119,7 @@ const steps = [
                 v-for="(skill, sIdx) in skillsList"
                 :key="sIdx"
                 v-magnetic="{ strength: 0.2 }"
-                class="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] border border-white/10 text-neutral-300 hover:border-crimson-500/50 hover:text-white hover:bg-crimson-600/10 transition-colors cursor-default will-change-transform inline-block"
+                class="px-2.5 py-1 rounded-lg text-xs font-mono bg-white/15 border border-white/20 text-white/90 hover:border-amber-300 hover:text-white hover:bg-white/25 transition-colors cursor-default will-change-transform inline-block"
               >
                 {{ skill }}
               </span>

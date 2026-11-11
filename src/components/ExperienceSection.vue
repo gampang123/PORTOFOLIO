@@ -122,19 +122,19 @@ onMounted(() => {
               <div
                 v-for="(ach, aIdx) in exp.achievements"
                 :key="aIdx"
-                class="flex items-start gap-2 text-xs sm:text-sm text-neutral-400"
+                class="flex items-start gap-2 text-xs sm:text-sm text-white/85"
               >
-                <ChevronRight class="w-4 h-4 text-white flex-shrink-0 mt-0.5" />
+                <ChevronRight class="w-4 h-4 text-amber-300 flex-shrink-0 mt-0.5" />
                 <span>{{ ach }}</span>
               </div>
             </div>
 
             <!-- Technologies Chips -->
-            <div class="flex flex-wrap gap-2 pt-2 border-t border-white/5">
+            <div class="flex flex-wrap gap-2 pt-2 border-t border-white/10">
               <span
                 v-for="(tech, tIdx) in exp.technologies"
                 :key="tIdx"
-                class="px-2.5 py-1 rounded-md text-xs font-mono bg-cyber-surfaceLight border border-white/10 text-neutral-300"
+                class="px-2.5 py-1 rounded-lg text-xs font-mono bg-white/15 border border-white/20 text-white/90"
               >
                 {{ tech }}
               </span>

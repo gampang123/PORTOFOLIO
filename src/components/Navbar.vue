@@ -55,8 +55,8 @@ onUnmounted(() => {
     class="fixed top-0 left-0 right-0 z-40 transition-all duration-300"
     :class="[
       isScrolled
-        ? 'py-3.5 bg-cyber-bg/85 backdrop-blur-xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.5)]'
-        : 'py-4 bg-[#3876ba]/20 backdrop-blur-md shadow-sm',
+        ? 'py-3 bg-[#1d4c82]/85 backdrop-blur-xl border-b border-white/25 shadow-[0_8px_32px_rgba(10,35,75,0.25)]'
+        : 'py-4 bg-white/15 backdrop-blur-md border-b border-white/20 shadow-sm',
     ]"
   >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -65,33 +65,17 @@ onUnmounted(() => {
         href="#hero"
         class="flex items-center gap-2 group font-mono text-lg tracking-wider"
       >
-        <div
-          class="w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-300"
-          :class="[
-            isScrolled
-              ? 'bg-cyber-surfaceLight border border-white/20 text-white shadow-[0_0_15px_rgba(255,255,255,0.15)] group-hover:border-white'
-              : 'bg-white/20 border border-white/30 text-white shadow-sm group-hover:bg-white/30',
-          ]"
-        >
-          <span class="font-bold text-base">&lt;/&gt;</span>
-        </div>
         <div class="flex items-baseline">
           <span class="font-display font-bold text-lg tracking-tight text-white transition-colors group-hover:text-amber-300">
             {{ personalData.nickName }}
           </span>
           <span class="font-bold text-xl leading-none text-amber-300">.</span>
-          <span class="text-xs font-mono ml-1 hidden sm:inline-block text-white/70">dev</span>
         </div>
       </a>
 
       <!-- Desktop Navigation Links -->
       <nav
-        class="hidden md:flex items-center gap-1 backdrop-blur-md px-4 py-1.5 rounded-full border transition-all duration-300"
-        :class="[
-          isScrolled
-            ? 'bg-cyber-surface/60 border-white/10 shadow-inner'
-            : 'bg-white/15 border-white/25 shadow-sm',
-        ]"
+        class="hidden md:flex items-center gap-1 backdrop-blur-md px-4 py-1.5 rounded-full border transition-all duration-300 bg-white/15 border-white/25 shadow-sm"
       >
         <a
           v-for="link in navLinks"
@@ -100,10 +84,8 @@ onUnmounted(() => {
           class="relative px-3.5 py-1.5 text-xs uppercase tracking-widest font-mono font-medium transition-all duration-200 rounded-full"
           :class="[
             activeSection === link.href.replace('#', '')
-              ? 'text-white bg-crimson-600 shadow-[0_0_12px_rgba(220,38,38,0.35)] font-semibold border border-crimson-500'
-              : isScrolled
-                ? 'text-neutral-400 hover:text-white hover:bg-white/5'
-                : 'text-white/80 hover:text-white hover:bg-white/10',
+              ? 'text-white bg-crimson-600 shadow-[0_0_12px_rgba(220,38,38,0.45)] font-semibold border border-crimson-500'
+              : 'text-white/85 hover:text-white hover:bg-white/15',
           ]"
         >
           {{ link.name }}
@@ -116,12 +98,7 @@ onUnmounted(() => {
           :href="personalData.cvUrl"
           download="CV_Gampang_Rozaki_2026.pdf"
           target="_blank"
-          class="relative inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-mono font-semibold tracking-wider rounded-lg transition-all duration-300"
-          :class="[
-            isScrolled
-              ? 'text-neutral-200 bg-white/5 hover:bg-white/10 border border-white/15 hover:border-white/30 hover:text-white'
-              : 'text-white bg-white/15 hover:bg-white/25 border border-white/25 shadow-sm',
-          ]"
+          class="relative inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-mono font-semibold tracking-wider rounded-lg transition-all duration-300 text-white bg-white/15 hover:bg-white/25 border border-white/25 shadow-sm"
         >
           <Download class="w-3.5 h-3.5 text-amber-300" />
           <span>CV 2026</span>
@@ -147,15 +124,8 @@ onUnmounted(() => {
         </a>
         <button
           @click="toggleMobileMenu"
-          class="p-2 rounded-lg transition-colors focus:outline-none"
-          :class="[
-            isScrolled
-              ? 'bg-cyber-surface border border-white/10 text-neutral-300 hover:text-white'
-              : 'bg-white/20 border border-white/25 text-white shadow-sm',
-          ]"
+          class="p-2 rounded-lg transition-colors focus:outline-none bg-white/20 border border-white/25 text-white shadow-sm hover:bg-white/30"
           aria-label="Toggle Navigation Menu"
-        >
-        >
         >
           <X v-if="isMobileMenuOpen" class="w-6 h-6 text-white" />
           <Menu v-else class="w-6 h-6" />
@@ -174,9 +144,9 @@ onUnmounted(() => {
     >
       <div
         v-if="isMobileMenuOpen"
-        class="md:hidden bg-cyber-bg/95 backdrop-blur-2xl border-b border-white/10 px-6 py-6 space-y-4"
+        class="md:hidden bg-[#1d4c82]/95 backdrop-blur-2xl border-b border-white/20 px-6 py-6 space-y-4"
       >
-        <div class="flex items-center gap-2 pb-3 border-b border-white/5 text-xs font-mono text-neutral-300">
+        <div class="flex items-center gap-2 pb-3 border-b border-white/10 text-xs font-mono text-white/90">
           <span class="w-2 h-2 rounded-full bg-white"></span>
           <span>{{ personalData.status }}</span>
         </div>
@@ -189,12 +159,12 @@ onUnmounted(() => {
             class="px-4 py-2.5 rounded-lg text-sm font-mono tracking-wider transition-colors flex items-center justify-between"
             :class="[
               activeSection === link.href.replace('#', '')
-                ? 'bg-white/10 text-white font-semibold border border-white/20'
-                : 'text-neutral-300 hover:bg-white/5 hover:text-white',
+                ? 'bg-white/20 text-white font-semibold border border-white/30'
+                : 'text-white/85 hover:bg-white/15 hover:text-white',
             ]"
           >
             <span>{{ link.name }}</span>
-            <span class="text-xs text-neutral-500 font-mono">0{{ navLinks.indexOf(link) + 1 }}</span>
+            <span class="text-xs text-white/60 font-mono">0{{ navLinks.indexOf(link) + 1 }}</span>
           </a>
         </div>
       </div>

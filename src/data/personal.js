@@ -1,6 +1,6 @@
 export const personalData = {
   name: "Gampang Rozaki",
-  nickName: "Rozaki",
+  nickName: "Gamp",
   role: "Full Stack Web Developer",
   tagline: "Spesialis pengembangan dan pemeliharaan aplikasi web berbasis Laravel & PHP dengan fokus pada keandalan operasional dan integrasi sistem.",
   status: "Available for Freelance & Full-Time",
