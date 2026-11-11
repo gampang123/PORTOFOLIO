@@ -34,11 +34,11 @@ export const personalData = {
     "Database Optimization & Security",
   ],
   socials: {
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
+    github: "https://github.com/gampang123",
+    linkedin: "https://www.linkedin.com/in/gampang-rozaki/",
     instagram: "https://instagram.com",
     twitter: "https://x.com",
-    email: "gampang.rozaki@gmail.com",
+    email: "gampangrozaki@gmail.com",
   },
   cvUrl: "/CV GAMPANG ROZAKI 2026.pdf",
 };
