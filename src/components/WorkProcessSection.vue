@@ -127,12 +127,6 @@ const steps = [
             </div>
           </div>
         </div>
-
-        <!-- Bottom verification note -->
-        <div class="pt-6 mt-6 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-neutral-500">
-          <span>HOTEL SYSTEMS & SAAS</span>
-          <span class="text-neutral-400">YOGYAKARTA, ID</span>
-        </div>
       </div>
 
       <!-- COLUMN 2: WORK PROCESS (5 Cols) -->
@@ -176,14 +170,6 @@ const steps = [
             </div>
           </div>
         </div>
-
-        <div class="pt-6 mt-6 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-neutral-500">
-          <span>HIGH-STANDARD WORKFLOW</span>
-          <span class="text-crimson-500 flex items-center gap-1">
-            <span class="w-1.5 h-1.5 rounded-full bg-crimson-600 animate-pulse"></span>
-            PRODUCTION READY
-          </span>
-        </div>
       </div>
 
       <!-- COLUMN 3: PHILOSOPHY QUOTE CARD (3 Cols - Sky Luxury Dark) -->
@@ -203,33 +189,8 @@ const steps = [
 
           <!-- Quote Text -->
           <p class="text-base sm:text-lg text-neutral-100 font-sans leading-relaxed tracking-tight mb-8">
-            "Good design and architecture is not just how it looks, but how reliably it performs, scales, and protects data."
+            "Hidup itu harus memilih, disaat kamu tidak memilih, itulah pilihanmu"
           </p>
-
-          <!-- Signature matching reference -->
-          <div class="space-y-1">
-            <div class="font-script text-3xl sm:text-4xl text-crimson-400 select-none tracking-wide">
-              Gampang Rozaki
-            </div>
-            <p class="text-[11px] font-mono tracking-widest text-neutral-400 uppercase">
-              FULL-STACK DEVELOPER
-            </p>
-          </div>
-        </div>
-
-        <!-- Bottom Action CTA -->
-        <div class="pt-8 mt-8 border-t border-crimson-900/40">
-          <p class="text-xs font-mono uppercase tracking-widest text-crimson-300 font-semibold mb-3">
-            LET'S CREATE SOMETHING GREAT TOGETHER.
-          </p>
-          <a
-            v-magnetic="{ strength: 0.35, innerStrength: 0.2 }"
-            href="#contact"
-            class="inline-flex items-center gap-2 text-xs font-mono text-white bg-crimson-600 hover:bg-crimson-500 px-4 py-2.5 rounded-lg font-bold tracking-wider transition-colors shadow-[0_0_15px_rgba(220,38,38,0.4)] group/btn cursor-pointer will-change-transform"
-          >
-            <span>START A PROJECT</span>
-            <ArrowRight data-magnetic-inner class="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
-          </a>
         </div>
       </div>
 

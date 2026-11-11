@@ -49,36 +49,23 @@ const setCategory = (cat) => {
         <div class="flex items-center gap-3">
           <span class="w-2 h-5 bg-crimson-600 rounded-sm"></span>
           <h2 class="font-poster text-3xl sm:text-4xl lg:text-5xl text-white uppercase tracking-wider">
-            SELECTED PROJECTS
+            MY PROJECTS
           </h2>
-        </div>
-
-        <div class="flex items-center gap-2">
-          <a
-            v-magnetic="{ strength: 0.3, innerStrength: 0.2 }"
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-xs font-mono tracking-widest text-white/90 hover:text-white uppercase flex items-center gap-2 transition-all px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 shadow-sm"
-          >
-            <span>VIEW ALL PROJECTS</span>
-            <ArrowUpRight data-magnetic-inner class="w-4 h-4 text-amber-300" />
-          </a>
         </div>
       </div>
 
       <!-- Category Filter Tabs -->
-      <div class="flex items-center justify-between flex-wrap gap-4 pt-2">
-        <p class="text-white/90 text-xs sm:text-sm font-sans max-w-xl drop-shadow-sm">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pt-2">
+        <p class="text-white/90 text-xs sm:text-sm font-sans max-w-sm lg:max-w-md drop-shadow-sm leading-relaxed">
           Sistem web enterprise, platform kasir SaaS multi-tenant, dan portal digital dengan arsitektur aman.
         </p>
 
-        <div class="flex flex-wrap gap-1.5 p-1.5 rounded-2xl bg-white/20 backdrop-blur-xl border border-white/30 shadow-sm">
+        <div class="flex-shrink-0 flex items-center gap-1 sm:gap-1.5 p-1 sm:p-1.5 rounded-2xl bg-white/20 backdrop-blur-xl border border-white/30 shadow-sm overflow-x-auto max-w-full">
           <button
             v-for="category in projectCategories"
             :key="category"
             @click="setCategory(category)"
-            class="px-3.5 py-1.5 rounded-xl text-xs font-mono tracking-wider transition-all duration-200 cursor-pointer font-medium"
+            class="px-3 sm:px-3.5 py-1.5 rounded-xl text-xs font-mono tracking-wider transition-all duration-200 cursor-pointer font-medium whitespace-nowrap"
             :class="[
               selectedCategory === category
                 ? 'bg-crimson-600 text-white font-bold shadow-[0_4px_15px_rgba(220,38,38,0.4)]'
