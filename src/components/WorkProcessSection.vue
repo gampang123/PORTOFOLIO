@@ -19,17 +19,18 @@ const skillsList = [
   'PHP',
   'MySQL',
   'REST API',
-  'Digiflazz API',
   'JavaScript',
   'Tailwind CSS',
   'Bootstrap',
   'jQuery',
   'Next.js',
-  'Go (Golang)',
+  'Vue.js',
+  'Go',
   'Solidity',
   'WordPress',
   'Git',
   'Postman',
+  'Payment Gateway'
 ]
 
 const steps = [
@@ -55,7 +56,7 @@ const steps = [
     num: '04',
     title: 'AUDIT & HARDENING',
     icon: ShieldCheck,
-    desc: 'Conducting OWASP security reviews, query profiling, edge-case validation, and performance tuning.'
+    desc: 'Review system, query profiling, edge-case validation, and performance tuning.'
   },
   {
     num: '05',
