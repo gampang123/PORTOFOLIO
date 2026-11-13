@@ -24,22 +24,22 @@ const traits = [
   {
     icon: ShieldCheck,
     title: 'Secure SDLC & OWASP',
-    description: 'Penerapan standar keamanan web OWASP Top 10 / ASVS, Secure SDLC (SAMM), dan review arsitektur aman.',
+    description: 'Adhering to OWASP Top 10 / ASVS standards, Secure SDLC (SAMM), and secure architectural design reviews.',
   },
   {
     icon: Layers,
     title: 'Backend & API Integration',
-    description: 'Spesialisasi Laravel & PHP, manajemen database MySQL, Redis caching, dan integrasi API pihak ketiga.',
+    description: 'Specializing in Laravel & PHP, MySQL database management, Redis caching, and third-party API integrations.',
   },
   {
     icon: Zap,
     title: 'Modern Frontend & UI',
-    description: 'Antarmuka responsif dan reaktif dengan Tailwind CSS, Bootstrap, jQuery, TypeScript, dan JavaScript modern.',
+    description: 'Clean, responsive, and reactive interfaces built with Tailwind CSS, Bootstrap, jQuery, TypeScript, and modern JavaScript.',
   },
   {
     icon: Cpu,
     title: 'Production Maintenance',
-    description: 'Berpengalaman menangani maintenance sistem manajemen hotel dan platform POS SaaS multi-tenant.',
+    description: 'Proven experience engineering hotel management systems and multi-tenant SaaS POS platforms.',
   },
 ]
 
@@ -122,7 +122,7 @@ onMounted(() => {
         </p>
 
         <p class="text-sm sm:text-base leading-relaxed text-neutral-400">
-          Memiliki fokus kuat dalam membangun solusi web yang tidak hanya andal secara fungsional, tetapi juga memprioritaskan keamanan (<em class="text-neutral-200 not-italic">security by design</em>). Dengan penguasaan stack backend <strong class="text-white font-medium">PHP & Laravel</strong>, didukung fleksibilitas <strong class="text-white font-medium">Go, TypeScript, JavaScript</strong>, serta kemampuan integrasi API pihak ketiga (third-party API), saya terbiasa mengawal proyek dari tahap perancangan arsitektur, optimasi database, hingga deployment di lingkungan produksi.
+          Focused on architecting web solutions that are not only functionally robust, but also prioritize security (<em class="text-neutral-200 not-italic">security by design</em>). With strong command over backend stacks in <strong class="text-white font-medium">PHP & Laravel</strong>, complemented by versatility in <strong class="text-white font-medium">Go, TypeScript, JavaScript</strong>, and third-party API integrations, I regularly manage projects from architectural conception and database optimization through to production deployment.
         </p>
 
         <!-- Philosophy Highlight Card -->

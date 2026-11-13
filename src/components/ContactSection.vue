@@ -93,7 +93,7 @@ const handleSubmit = () => {
               @click="showForm = !showForm"
               class="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-crimson-600 hover:bg-crimson-500 text-white font-mono text-xs font-bold tracking-wider transition-colors shadow-[0_4px_20px_rgba(220,38,38,0.4)] group cursor-pointer will-change-transform"
             >
-              <span>{{ showForm ? 'TUTUP FORM PESAN' : 'KIRIM PESAN LANGSUNG' }}</span>
+              <span>{{ showForm ? 'CLOSE CONTACT FORM' : 'SEND DIRECT MESSAGE' }}</span>
               <ArrowRight data-magnetic-inner class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
@@ -188,13 +188,13 @@ const handleSubmit = () => {
         <div v-if="showForm" class="mt-10 pt-8 border-t border-white/15">
           <h3 class="font-mono text-sm tracking-wider uppercase text-white font-bold mb-4 flex items-center gap-2">
             <Mail class="w-4 h-4 text-amber-300" />
-            <span>Kirim Pesan Cepat Langsung ke Inbox</span>
+            <span>Send a Quick Message Directly to My Inbox</span>
           </h3>
 
           <form @submit.prevent="handleSubmit" class="space-y-4 max-w-2xl">
             <div v-if="isSubmitted" class="p-4 rounded-xl bg-emerald-500/20 border border-emerald-400/40 text-white text-xs font-mono flex items-center gap-3">
               <Check class="w-4 h-4 text-emerald-300 flex-shrink-0" />
-              <span>Terima kasih! Pesan Anda telah dikirim dan saya akan segera membalasnya.</span>
+              <span>Thank you! Your message has been sent, and I will get back to you shortly.</span>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -202,14 +202,14 @@ const handleSubmit = () => {
                 v-model="form.name"
                 type="text"
                 required
-                placeholder="Nama Anda"
+                placeholder="Your Name"
                 class="w-full px-4 py-3 rounded-xl bg-white/15 border border-white/20 focus:border-amber-300 focus:outline-none text-white text-sm placeholder-white/50 font-sans backdrop-blur-md"
               />
               <input
                 v-model="form.email"
                 type="email"
                 required
-                placeholder="Email Anda"
+                placeholder="Your Email"
                 class="w-full px-4 py-3 rounded-xl bg-white/15 border border-white/20 focus:border-amber-300 focus:outline-none text-white text-sm placeholder-white/50 font-sans backdrop-blur-md"
               />
             </div>
@@ -218,7 +218,7 @@ const handleSubmit = () => {
               v-model="form.message"
               required
               rows="4"
-              placeholder="Tulis pesan atau kebutuhan proyek Anda di sini..."
+              placeholder="Write your message or project inquiry here..."
               class="w-full px-4 py-3 rounded-xl bg-white/15 border border-white/20 focus:border-amber-300 focus:outline-none text-white text-sm placeholder-white/50 font-sans backdrop-blur-md resize-none"
             ></textarea>
 
@@ -228,7 +228,7 @@ const handleSubmit = () => {
               class="px-6 py-3 rounded-xl bg-crimson-600 hover:bg-crimson-500 text-white font-mono text-xs font-bold tracking-wider transition-all flex items-center gap-2 shadow-[0_0_15px_rgba(220,38,38,0.4)]"
             >
               <Send class="w-4 h-4" />
-              <span>{{ isSubmitting ? 'MENGIRIM...' : 'KIRIM SEKARANG' }}</span>
+              <span>{{ isSubmitting ? 'SENDING...' : 'SEND MESSAGE' }}</span>
             </button>
           </form>
         </div>

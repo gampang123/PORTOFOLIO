@@ -64,7 +64,7 @@ const sheets = computed(() => {
       type: 'action',
       title: 'Full System Specs',
       badge: 'DEEP DIVE',
-      actionText: 'Lihat Detail & Specs',
+      actionText: 'View Details & Specs',
     },
     {
       id: 'metrics',
@@ -233,7 +233,7 @@ const triggerModal = (e) => {
                 {{ project.shortDescription }}
               </p>
               <div class="pt-1 flex items-center justify-between text-[11px] font-mono text-amber-300 font-semibold">
-                <span>Klik untuk Detail & Specs</span>
+                <span>Click for Details & Specs</span>
                 <Maximize2 class="w-3.5 h-3.5" />
               </div>
             </div>
@@ -386,7 +386,7 @@ const triggerModal = (e) => {
               <button
                 type="button"
                 class="w-10 h-10 rounded-xl bg-crimson-600 hover:bg-crimson-500 text-white flex items-center justify-center shadow-[0_4px_12px_rgba(220,38,38,0.35)] transition-all hover:scale-110 active:scale-95 cursor-pointer z-30"
-                title="Buka Lembar Arsip / Modal"
+                title="Open Dossier / Modal"
                 @click.stop="triggerModal"
               >
                 <Maximize2 class="w-4 h-4" />

@@ -96,10 +96,10 @@ onMounted(() => {
         <div class="h-px bg-white/20 flex-grow max-w-[120px]"></div>
       </div>
       <h2 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white tracking-tight">
-        Toolkit & <span class="cyber-gradient-text">Arsitektur Teknologi</span>.
+        Toolkit & <span class="cyber-gradient-text">Tech Architecture</span>.
       </h2>
       <p class="text-neutral-400 text-sm sm:text-base max-w-2xl mt-3">
-        Kombinasi teknologi modern untuk membangun produk web dari lapisan antarmuka grafis 3D interaktif hingga kestabilan infrastruktur server.
+        A combination of modern technologies for building web products, from interactive UI layers to robust server infrastructure.
       </p>
     </div>
 

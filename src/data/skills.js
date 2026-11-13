@@ -2,7 +2,7 @@ export const skillCategories = [
   {
     id: "backend",
     title: "Backend & Systems Development",
-    description: "Pengembangan server, arsitektur MVC, database management, dan integrasi API pihak ketiga.",
+    description: "Server development, MVC architecture, database management, and third-party API integration.",
     icon: "Server",
     skills: [
       { name: "PHP & Laravel Framework", level: 90, tag: "Core Stack" },
@@ -16,7 +16,7 @@ export const skillCategories = [
   {
     id: "frontend",
     title: "Frontend & UI Engineering",
-    description: "Antarmuka web yang rapi, responsif, cepat, dan user-friendly di berbagai perangkat.",
+    description: "Clean, responsive, fast, and user-friendly web interfaces across all device viewports.",
     icon: "Layout",
     skills: [
       { name: "Tailwind CSS", level: 90, tag: "Styling" },
@@ -30,7 +30,7 @@ export const skillCategories = [
   {
     id: "cms-specialization",
     title: "CMS, Architecture & Operations",
-    description: "Sistem manajemen konten dinamis, arsitektur hotel management, dan multi-tenant SaaS.",
+    description: "Dynamic content management systems, hotel management architecture, and multi-tenant SaaS.",
     icon: "Cpu",
     skills: [
       { name: "Hotel Management Modules", level: 88, tag: "Domain Expertise" },

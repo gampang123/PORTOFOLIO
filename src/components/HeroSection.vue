@@ -90,7 +90,7 @@ onMounted(() => {
 
         <!-- Description Paragraph that Breathes -->
         <p class="hero-desc text-sm sm:text-base text-white/90 leading-relaxed font-sans max-w-xl drop-shadow-sm">
-          Spesialis rekayasa perangkat lunak dan sistem web berbasis <strong class="text-white font-semibold">Laravel & PHP</strong>. Berpengalaman membangun ekosistem hotel management system, platform SaaS multi-tenant, dan integrasi API pihak ketiga dengan standar keamanan andal.
+          Software engineer specializing in <strong class="text-white font-semibold">Laravel & PHP</strong> web systems. Experienced in architecting hotel management ecosystems, multi-tenant SaaS platforms, and secure third-party API integrations.
         </p>
 
         <!-- Location & Availability Micro-Chips -->
@@ -98,10 +98,6 @@ onMounted(() => {
           <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/15 border border-white/25 backdrop-blur-md shadow-sm">
             <MapPin class="w-3.5 h-3.5 text-amber-300" />
             <span>YOGYAKARTA, INDONESIA</span>
-          </div>
-          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/15 border border-white/25 backdrop-blur-md shadow-sm">
-            <ShieldCheck class="w-3.5 h-3.5 text-emerald-300" />
-            <span>OWASP TOP 10 COMPLIANT</span>
           </div>
         </div>
 

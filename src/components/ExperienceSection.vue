@@ -62,7 +62,7 @@ onMounted(() => {
         </h2>
       </div>
       <p class="text-neutral-400 text-xs sm:text-sm font-sans max-w-xl">
-        Pengalaman membangun sistem web berskala produksi, integrasi API, arsitektur database, dan implementasi standar keamanan OWASP.
+        Track record of engineering production-grade web systems, API integrations, database architectures, and OWASP security compliance.
       </p>
     </div>
 

@@ -189,7 +189,7 @@ const steps = [
 
           <!-- Quote Text -->
           <p class="text-base sm:text-lg text-neutral-100 font-sans leading-relaxed tracking-tight mb-8">
-            "Hidup itu harus memilih, disaat kamu tidak memilih, itulah pilihanmu"
+            "Life is about choices; when you choose not to choose, that in itself is your choice."
           </p>
         </div>
       </div>

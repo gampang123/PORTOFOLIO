@@ -9,7 +9,6 @@ import {
 } from 'lucide-vue-next'
 import { projectsData, projectCategories } from '../data/projects'
 import ProjectModal from './ProjectModal.vue'
-import ProjectPreviewDisplay from './ProjectPreviewDisplay.vue'
 import GlassFolderProjectCard from './ui/GlassFolderProjectCard.vue'
 
 const selectedCategory = ref('All')
@@ -57,7 +56,7 @@ const setCategory = (cat) => {
       <!-- Category Filter Tabs -->
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pt-2">
         <p class="text-white/90 text-xs sm:text-sm font-sans max-w-sm lg:max-w-md drop-shadow-sm leading-relaxed">
-          Sistem web enterprise, platform kasir SaaS multi-tenant, dan portal digital dengan arsitektur aman.
+          Enterprise web applications, multi-tenant SaaS POS platforms, and secure digital platforms.
         </p>
 
         <div class="flex-shrink-0 flex items-center gap-1 sm:gap-1.5 p-1 sm:p-1.5 rounded-2xl bg-white/20 backdrop-blur-xl border border-white/30 shadow-sm overflow-x-auto max-w-full">
