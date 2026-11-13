@@ -108,7 +108,7 @@ onMounted(() => {
                 {{ exp.role }}
               </h3>
               <p class="text-sm font-mono text-neutral-400 font-medium mt-0.5">
-                @ {{ exp.company }}
+                {{ exp.company }}
               </p>
             </div>
 
